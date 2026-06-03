@@ -69,19 +69,21 @@
             border: 1px solid #bbf7d0;
         }
 
-        /* Video Box */
+        /* Video Box ADATTATO PER VIDEO VERTICALI (Sile Smartphone Mockup) */
         .video-wrapper {
-            max-width: 800px;
+            max-width: 340px; /* Larghezza limitata per simulare un telefono */
             margin: 0 auto 50px auto;
         }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
+            padding-bottom: 177.77%; /* Ratio verticale 9:16 (16 / 9 * 100) */
             height: 0;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 24px; /* Angoli arrotondati come uno smartphone reale */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 6px solid #1e293b; /* Cornice scura protettiva */
+            background-color: #000;
         }
 
         .video-container iframe {
@@ -237,10 +239,9 @@
             <p class="subtitle">La prima applicazione mobile che permette di inserire Album Fotografici e Video Interattivi direttamente all'interno di documenti in formato standard PDF. Sicurezza inviolabile, compatibilità universale.</p>
         </section>
 
-        <!-- Sezione Video Principale -->
+        <!-- Sezione Video Principale (Ora a forma di Smartphone!) -->
         <div class="video-wrapper">
             <div class="video-container">
-                <!-- Il link del video dimostrativo reale -->
                 <iframe 
                     src="https://www.youtube.com/embed/fb3d8sxlC_g" 
                     title="PdfForAll Presentazione" 
@@ -275,7 +276,7 @@
             <div class="feature-block">
                 <h3>📸 Fotografia Prospettica e Album Sicuri</h3>
                 <p>Crea album fotografici professionali sul tuo documento. Scatta una foto da qualsiasi angolazione e usa il Ritagliatore Prospettico per raddrizzarla sul foglio in modo ottimale. Ruota le immagini usando il Tentacolo a Rotazione Magnetica con calamita a 0/90/180 gradi, oppure ritagliale in forme geometriche o creative.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Le immagini vengono incorporate nel corpo del PDF como dati protetti, impedendo che si spostino o si scollino quando il file viene aperto su altri dispositivi.</div>
+                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Le immagini vengono incorporate nel corpo del PDF come dati protetti, impedendo che si spostino o si scollino quando il file viene aperto su altri dispositivi.</div>
                 <!-- SPAZIO SCREENSHOT FOTO -->
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Ritaglio+Prospettico+Foto" class="screenshot-placeholder" alt="Screenshot Foto Prospettica">
             </div>
@@ -293,7 +294,7 @@
             <div class="feature-block">
                 <h3>📐 Disegno Vettoriale e Firme Protette</h3>
                 <p>Traccia linee, forme geometriche, cerchi e rettangoli con il modellatore vettoriale a nodi. Applica la tua firma formale o commerciale: l'app crea uno speciale "Scudo di Protezione" che blocca l'immagine della firma, rendendola impossibile da modificare, deformare o rimuovere per errore dal foglio.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** La firma e i disegni vengono salvati come dati vettoriali leggeri protetti da modifiche non autorizzate, ideali per contratti e report ufficiali.</div>
+                <div class="pdf-guarantee">📄 **Sicurezza PDF:** La firma e i disegni vengono salvati como dati vettoriali leggeri protetti da modifiche non autorizzate, ideali per contratti e report ufficiali.</div>
                 <!-- SPAZIO SCREENSHOT CAD -->
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Firme+e+Disegno+CAD" class="screenshot-placeholder" alt="Screenshot Firme e CAD">
             </div>
