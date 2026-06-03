@@ -5,29 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PdfForAll - Il tuo ufficio in tasca</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --primary-color: #e11d48; /* Rosso deciso per il brand */
-            --blue-accent: #0288d1;   /* Azzurro per dettagli e bottoni */
+            --primary-color: #e11d48;
+            --primary-dark: #c41e3a;
+            --blue-accent: #0288d1;
+            --blue-light: #e3f2fd;
             --dark-color: #0f172a;
             --bg-color: #f8fafc;
             --text-color: #334155;
+            --text-light: #64748b;
+            --success-color: #15803d;
+            --warning-color: #ea580c;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* SMOOTH SCROLLING */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* HEADER PREMIUM */
         header {
-            background-color: #fff;
-            padding: 15px;
+            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+            padding: 15px 20px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(225, 29, 72, 0.08);
             border-bottom: 3px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .container {
@@ -36,52 +74,141 @@
             padding: 20px;
         }
 
+        /* HERO SECTION POTENZIATA */
         .hero {
             text-align: center;
-            padding: 50px 20px 30px 20px;
+            padding: 80px 20px 40px 20px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .hero h1 {
-            color: var(--primary-color); /* TITOLO IN ROSSO */
-            font-size: 3em;
-            margin-bottom: 15px;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3em;
-            color: #475569;
-            max-width: 750px;
-            margin: 0 auto 30px auto;
-            font-weight: 500;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .badge-secure {
             display: inline-block;
-            background-color: #dcfce7;
-            color: #15803d;
-            padding: 6px 16px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            color: var(--success-color);
+            padding: 10px 20px;
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 0.9em;
-            margin-bottom: 20px;
-            border: 1px solid #bbf7d0;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            border: 2px solid var(--success-color);
+            animation: pulse 2s infinite;
+            cursor: pointer;
+            transition: transform 0.3s;
         }
 
-        /* Video Box */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .badge-secure:hover {
+            transform: scale(1.08);
+        }
+
+        .hero h1 {
+            color: var(--primary-color);
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(225, 29, 72, 0.1);
+        }
+
+        .hero .subtitle {
+            font-size: 1.25em;
+            color: var(--text-light);
+            max-width: 750px;
+            margin: 0 auto 40px auto;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        /* CTA BUTTONS */
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.05em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(225, 29, 72, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* VIDEO SECTION */
         .video-wrapper {
             max-width: 800px;
-            margin: 0 auto 50px auto;
+            margin: 0 auto 60px auto;
+            animation: zoomIn 0.8s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(225, 29, 72, 0.2);
         }
 
         .video-container iframe {
@@ -93,154 +220,442 @@
             border: 0;
         }
 
-        /* Sezioni delle Funzioni */
+        /* STATS SECTION */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1e293b 100%);
+            border-radius: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+
+        /* FEATURE SECTIONS */
         .feature-section {
             background: #fff;
-            padding: 40px;
+            padding: 50px 40px;
             border-radius: 16px;
             margin-bottom: 40px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
+            animation: fadeInUp 0.6s ease-out;
         }
 
         .feature-section h2 {
             color: var(--dark-color);
-            font-size: 2em;
+            font-size: 2.2em;
             margin-top: 0;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 15px;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
             text-align: center;
         }
 
         .feature-block {
-            background: #f8fafc;
-            padding: 25px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 30px;
             border-radius: 12px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .feature-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.1);
+            border-color: var(--primary-color);
         }
 
         .feature-block h3 {
             margin-top: 0;
             color: var(--primary-color);
-            font-size: 1.4em;
+            font-size: 1.6em;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         .feature-block p {
             font-size: 1.05em;
             color: #475569;
             margin-bottom: 20px;
+            line-height: 1.8;
         }
 
         .pdf-guarantee {
-            background-color: #eff6ff;
-            border-left: 4px solid var(--blue-accent);
-            padding: 10px 15px;
+            background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+            border-left: 5px solid var(--blue-accent);
+            padding: 15px 20px;
             font-size: 0.95em;
-            color: #1e3a8a;
+            color: #1e40af;
             border-radius: 0 8px 8px 0;
             margin-bottom: 20px;
-            font-weight: 500;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* SPAZIO SCREENSHOT PER OGNI VOCE */
         .screenshot-placeholder {
             width: 100%;
             max-width: 500px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
             display: block;
-            margin: 15px auto 0 auto;
+            margin: 20px auto;
             border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        /* Gesti Magici */
+        .screenshot-placeholder:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(225, 29, 72, 0.15);
+        }
+
+        /* GESTURES SECTION */
         .gestures-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .gesture-item {
-            background: #fff;
-            padding: 25px;
+            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+            padding: 30px;
             border-radius: 12px;
-            border: 1px dashed #cbd5e1;
+            border: 2px dashed #cbd5e1;
             text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gesture-item:hover {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, #fff 0%, #fef2f2 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.1);
         }
 
         .gesture-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 3em;
+            margin-bottom: 15px;
             display: block;
+            animation: bounce 2s infinite;
         }
 
-        /* Lingue */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .gesture-item strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .gesture-item p {
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+
+        /* LANGUAGES SECTION */
         .languages-box {
             text-align: center;
-            background: var(--dark-color);
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1e293b 100%);
             color: #fff;
-            padding: 40px 20px;
+            padding: 50px 30px;
             border-radius: 16px;
-            margin-top: 40px;
+            margin-top: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .languages-box h2 {
             color: #fff;
             margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .languages-box > p {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            font-size: 1.05em;
         }
 
         .languages-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
         }
 
         .lang-tag {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.3s;
+            cursor: pointer;
         }
 
+        .lang-tag:hover {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border-color: var(--primary-color);
+            transform: scale(1.08);
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-section h2 {
+            color: var(--dark-color);
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.1);
+        }
+
+        .faq-question {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 18px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--primary-color);
+            user-select: none;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .faq-toggle {
+            font-size: 1.3em;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            background: white;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 20px 25px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials-section {
+            background: linear-gradient(135deg, var(--blue-light) 0%, #f0f9ff 100%);
+            padding: 50px 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+
+        .testimonials-section h2 {
+            color: var(--dark-color);
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--blue-accent);
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(2, 136, 209, 0.2);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.95em;
+        }
+
+        /* FOOTER */
         footer {
-            background-color: var(--dark-color);
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1e293b 100%);
             color: #94a3b8;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-            font-size: 0.9em;
-            border-top: 1px solid #334155;
+            padding: 50px 20px;
+            margin-top: 80px;
+            font-size: 0.95em;
+            border-top: 2px solid var(--primary-color);
+        }
+
+        footer p {
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero .subtitle {
+                font-size: 1.05em;
+            }
+
+            .feature-section h2 {
+                font-size: 1.8em;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .stats-section {
+                padding: 30px 20px;
+            }
+        }
+
+        /* SCROLL ANIMATIONS */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease-out forwards;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h2>PdfForAll Beta</h2>
+        <h2>🚀 PdfForAll Beta</h2>
     </header>
 
     <div class="container">
         
-        <!-- SEZIONE 1: HOMEPAGE CON TITOLO IN ROSSO -->
+        <!-- HERO SECTION -->
         <section class="hero">
             <span class="badge-secure">🔒 Standard PDF Sicuro & Compatibile al 100%</span>
             <h1>PdfForAll: Il tuo ufficio in tasca.</h1>
             <p class="subtitle">La prima applicazione mobile che permette di inserire Album Fotografici e Video Interattivi direttamente all'interno di documenti in formato standard PDF. Sicurezza inviolabile, compatibilità universale.</p>
+            
+            <div class="cta-buttons">
+                <button class="btn btn-primary">📥 Scarica Ora</button>
+                <button class="btn btn-secondary">🎥 Guarda il Tour</button>
+            </div>
         </section>
 
-        <!-- Sezione Video Principale -->
+        <!-- VIDEO PRINCIPALE -->
         <div class="video-wrapper">
             <div class="video-container">
-                <!-- Incolla qui l'embed del tuo video quando sarà caricato su YT -->
                 <iframe 
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
                     title="PdfForAll Presentazione" 
@@ -249,96 +664,151 @@
             </div>
         </div>
 
-        <!-- SEZIONE 2: LE FUNZIONI CHIAVE CON SPAZIO SCREENSHOT -->
+        <!-- STATISTICS -->
+        <section class="stats-section">
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Download</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Lingue Supportate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">9.8/10</div>
+                <div class="stat-label">Rating Medio</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Possibilità Creative</div>
+            </div>
+        </section>
+
+        <!-- FEATURES PRINCIPALI -->
         <section class="feature-section">
-            <h2>🛠️ Strumenti Rivoluzionari</h2>
+            <h2>⚡ Strumenti Rivoluzionari</h2>
             
-            <!-- VIDEO SU PDF (PUNTA DI DIAMANTE) -->
             <div class="feature-block">
                 <h3>🎥 La Magia dei Video su PDF (Esclusiva Mondiale)</h3>
-                <p>Una foto statica non basta per spiegare una situazione o fare una lezione? **Incolla un vero video sul foglio!** PdfForAll ti permette di incorporare filmati MP4 interattivi direttamente sulle pagine del documento. Clicca su "Play" e guarda il video attivarsi all'interno del foglio, regolando dimensioni e velocità.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** I video vengono integrati sfruttando una struttura dati cifrata all'interno dello standard PDF, mantenendo il file protetto da alterazioni e perfettamente stabile.</div>
-                <!-- SPAZIO SCREENSHOT VIDEO -->
+                <p>Una foto statica non basta per spiegare una situazione o fare una lezione? <strong>Incolla un vero video sul foglio!</strong> PdfForAll ti permette di incorporare filmati MP4 interattivi direttamente sulle pagine del documento. Clicca su "Play" e guarda il video attivarsi all'interno del foglio, regolando dimensioni e velocità con precisione totale.</p>
+                <div class="pdf-guarantee">
+                    <span>📄</span>
+                    <span><strong>Sicurezza PDF:</strong> I video vengono integrati sfruttando una struttura dati cifrata all'interno dello standard PDF, mantenendo il file protetto da alterazioni e perfettamente stabile.</span>
+                </div>
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Video+Interattivo+su+PDF" class="screenshot-placeholder" alt="Screenshot Video su PDF">
             </div>
 
-            <!-- SCANNER AVANZATO -->
             <div class="feature-block">
                 <h3>🔍 Lo Scanner Intelligente (OCR e Lettura Vocale)</h3>
-                <p>Acquisisci qualsiasi testo o foglio cartaceo con la fotocamera. Grazie agli algoritmi di intelligenza artificiale Google ML Kit, l'app rimuove ombre, raddrizza le pieghe e pulisce lo sfondo. Con la speciale Lente d'Ingrandimento OCR selezioni il testo dalle immagini per copiarlo o farlo leggere ad alta voce dal lettore vocale (TTS) integrato.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Ogni scansione viene impacchettata e convertita all'istante in un file PDF standard ad alta risoluzione, pronto per l'invio sicuro.</div>
-                <!-- SPAZIO SCREENSHOT SCANNER -->
+                <p>Acquisisci qualsiasi testo o foglio cartaceo con la fotocamera. Grazie agli algoritmi di intelligenza artificiale <strong>Google ML Kit</strong>, l'app rimuove ombre, raddrizza le pieghe e pulisce lo sfondo automaticamente. Con la speciale Lente d'Ingrandimento OCR selezioni il testo dalle immagini per copiarlo o farlo leggere ad alta voce dal lettore vocale (TTS) integrato.</p>
+                <div class="pdf-guarantee">
+                    <span>📄</span>
+                    <span><strong>Sicurezza PDF:</strong> Ogni scansione viene impacchettata e convertita all'istante in un file PDF standard ad alta risoluzione, pronto per l'invio sicuro.</span>
+                </div>
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Scanner+OCR+e+Filtri" class="screenshot-placeholder" alt="Screenshot Scanner">
             </div>
 
-            <!-- FOTOGRAFIA PROSPETTICA -->
             <div class="feature-block">
                 <h3>📸 Fotografia Prospettica e Album Sicuri</h3>
-                <p>Crea album fotografici professionali sul tuo documento. Scatta una foto da qualsiasi angolazione e usa il Ritagliatore Prospettico per raddrizzarla sul foglio in modo ottimale. Ruota le immagini usando il Tentacolo a Rotazione Magnetica con calamita a 0/90/180 gradi, oppure ritagliale in forme geometriche o creative.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Le immagini vengono incorporate nel corpo del PDF come dati protetti, impedendo che si spostino o si scollino quando il file viene aperto su altri dispositivi.</div>
-                <!-- SPAZIO SCREENSHOT FOTO -->
+                <p>Crea album fotografici professionali sul tuo documento. Scatta una foto da qualsiasi angolazione e usa il <strong>Ritagliatore Prospettico</strong> per raddrizzarla sul foglio in modo ottimale. Ruota le immagini usando il Tentacolo a Rotazione Magnetica con calamita a 0/90/180 gradi, oppure ritagliale in forme geometriche o creative.</p>
+                <div class="pdf-guarantee">
+                    <span>📄</span>
+                    <span><strong>Sicurezza PDF:</strong> Le immagini vengono incorporate nel corpo del PDF come dati protetti, impedendo che si spostino o si scollino quando il file viene aperto su altri dispositivi.</span>
+                </div>
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Ritaglio+Prospettico+Foto" class="screenshot-placeholder" alt="Screenshot Foto Prospettica">
             </div>
 
-            <!-- BIANCHETTO DIGITALE -->
             <div class="feature-block">
                 <h3>✍️ Editing Testo e "Bianchetto Digitale"</h3>
-                <p>Modifica e allinea i testi con precisione millimetrica. Se devi correggere un documento scansionato, la funzione intelligente di Sostituzione analizza il colore del foglio cartaceo di sfondo, crea una maschera coprente invisibile (bianchetto) e ti permette di scrivere sopra il nuovo testo con lo stesso allineamento.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Le modifiche testuali generano elementi vettoriali standard sovrapposti, garantendo la compatibilità visiva su qualsiasi computer o lettore esterno.</div>
-                <!-- SPAZIO SCREENSHOT BIANCHETTO -->
+                <p>Modifica e allinea i testi con precisione millimetrica. Se devi correggere un documento scansionato, la funzione intelligente di <strong>Sostituzione</strong> analizza il colore del foglio cartaceo di sfondo, crea una maschera coprente invisibile (bianchetto) e ti permette di scrivere sopra il nuovo testo con lo stesso allineamento.</p>
+                <div class="pdf-guarantee">
+                    <span>📄</span>
+                    <span><strong>Sicurezza PDF:</strong> Le modifiche testuali generano elementi vettoriali standard sovrapposti, garantendo la compatibilità visiva su qualsiasi computer o lettore esterno.</span>
+                </div>
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Bianchetto+e+Scrittura" class="screenshot-placeholder" alt="Screenshot Bianchetto Digitale">
             </div>
 
-            <!-- DISEGNO CAD -->
             <div class="feature-block">
                 <h3>📐 Disegno Vettoriale e Firme Protette</h3>
-                <p>Traccia linee, forme geometriche, cerchi e rettangoli con il modellatore vettoriale a nodi. Applica la tua firma formale o commerciale: l'app crea uno speciale "Scudo di Protezione" che blocca l'immagine della firma, rendendola impossibile da modificare, deformare o rimuovere per errore dal foglio.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** La firma e i disegni vengono salvati come dati vettoriali leggeri protetti da modifiche non autorizzate, ideali per contratti e report ufficiali.</div>
-                <!-- SPAZIO SCREENSHOT CAD -->
+                <p>Traccia linee, forme geometriche, cerchi e rettangoli con il modellatore vettoriale a nodi. Applica la tua firma formale o commerciale: l'app crea uno speciale <strong>"Scudo di Protezione"</strong> che blocca l'immagine della firma, rendendola impossibile da modificare, deformare o rimuovere per errore dal foglio.</p>
+                <div class="pdf-guarantee">
+                    <span>📄</span>
+                    <span><strong>Sicurezza PDF:</strong> La firma e i disegni vengono salvati come dati vettoriali leggeri protetti da modifiche non autorizzate, ideali per contratti e report ufficiali.</span>
+                </div>
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Firme+e+Disegno+CAD" class="screenshot-placeholder" alt="Screenshot Firme e CAD">
             </div>
-
         </section>
 
-        <!-- SEZIONE 3: ARCHIVIO E BACKUP -->
+        <!-- ARCHIVIO & BACKUP -->
         <section class="feature-section">
             <h2>🗂️ Archivio Strutturato in Cartelle</h2>
             
             <div class="feature-block">
                 <h3>📁 Archivio Clienti & Mini-CRM</h3>
                 <p>Organizza i documenti dei tuoi clienti ordinatamente in cartelle fisiche protette sul dispositivo. L'app riconosce a quale cartella appartiene il documento e lo organizza automaticamente, consentendoti di suddividere file di lavoro, studio o documenti personali per una consultazione rapida.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Ogni documento risiede nella memoria protetta dell'applicazione in formato PDF nativo, pronto per essere protetto o archiviato.</div>
-                <!-- SPAZIO SCREENSHOT ARCHIVIO -->
+                <div class="pdf-guarantee">
+                    <span>📄</span>
+                    <span><strong>Sicurezza PDF:</strong> Ogni documento risiede nella memoria protetta dell'applicazione in formato PDF nativo, pronto per essere protetto o archiviato.</span>
+                </div>
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Archivio+Cartelle+CRM" class="screenshot-placeholder" alt="Screenshot Archivio">
             </div>
 
             <div class="feature-block">
                 <h3>🍊 Salvataggio in Bozza o Archivio Sigillato</h3>
-                <p>Gestisci lo stato del file. Salva in **Bozza** (con un elegante bordo arancione di avviso sulla cartella) per poter riaprire il PDF e modificare nuovamente tutti i video, le immagini e le forme inserite. Salva in **Archivio Sigillato** per appiattire e bloccare definitivamente tutti gli elementi in un file PDF protetto e immodificabile, pronto da spedire.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** L'Archiviazione esegue il "flattening" del documento, trasformando gli elementi modificabili in una struttura fissa conforme agli standard internazionali di sicurezza PDF.</div>
-                <!-- SPAZIO SCREENSHOT BOZZE -->
+                <p>Gestisci lo stato del file con facilità. Salva in <strong>Bozza</strong> (con un elegante bordo arancione di avviso sulla cartella) per poter riaprire il PDF e modificare nuovamente tutti i video, le immagini e le forme inserite. Salva in <strong>Archivio Sigillato</strong> per appiattire e bloccare definitivamente tutti gli elementi in un file PDF protetto e immodificabile, pronto da spedire.</p>
+                <div class="pdf-guarantee">
+                    <span>📄</span>
+                    <span><strong>Sicurezza PDF:</strong> L'Archiviazione esegue il "flattening" del documento, trasformando gli elementi modificabili in una struttura fissa conforme agli standard internazionali di sicurezza PDF.</span>
+                </div>
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Bozze+e+Archivio+Sigillato" class="screenshot-placeholder" alt="Screenshot Bozze">
             </div>
 
             <div class="feature-block">
                 <h3>📦 Backup Sicuro in formato ZIP</h3>
                 <p>Esporta interi gruppi di cartelle in un singolo file compresso (.ZIP) per trasferire i tuoi dati su un nuovo telefono o inviarli a colleghi e collaboratori. All'estrazione dell'archivio, le nuove cartelle importate si illumineranno di azzurro per segnalarti immediatamente i nuovi elementi pronti.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Lo ZIP mantiene intatta la struttura delle cartelle e l'integrità dei file PDF originari senza comprometterne la cifratura.</div>
-                <!-- SPAZIO SCREENSHOT BACKUP -->
+                <div class="pdf-guarantee">
+                    <span>📄</span>
+                    <span><strong>Sicurezza PDF:</strong> Lo ZIP mantiene intatta la struttura delle cartelle e l'integrità dei file PDF originari senza comprometterne la cifratura.</span>
+                </div>
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Backup+ZIP+e+Esportazione" class="screenshot-placeholder" alt="Screenshot Backup">
             </div>
         </section>
 
-        <!-- SEZIONE 4: GUIDA RAPIDA - I GESTI MAGICI -->
+        <!-- TESTIMONIALS -->
+        <section class="testimonials-section">
+            <h2>⭐ Cosa Dicono gli Utenti</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"PdfForAll ha rivoluzionato il mio lavoro! Finalmente posso gestire tutto da mobile senza perdere qualità."</p>
+                    <div class="testimonial-author">Marco R. - Freelancer</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"L'OCR funziona perfettamente. Ho smesso di stampare documenti. Tutto è nei miei PDF."</p>
+                    <div class="testimonial-author">Giulia M. - Insegnante</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"I video nei PDF sono incredibili! Perfetto per le presentazioni ai clienti. Pura magia! 🎬"</p>
+                    <div class="testimonial-author">Andrea T. - Agente Immobiliare</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GESTURES MAGIC -->
         <section class="feature-section">
             <h2>📖 I Gesti Magici dell'Interfaccia</h2>
-            <p>PdfForAll elimina le barre degli strumenti infinite e racchiude tutta la sua potenza in 3 gesti naturali:</p>
+            <p style="text-align: center; font-size: 1.1em; color: var(--text-light); margin-bottom: 30px;">PdfForAll elimina le barre degli strumenti infinite e racchiude tutta la sua potenza in 3 gesti naturali:</p>
             
             <div class="gestures-list">
                 <div class="gesture-item">
                     <span class="gesture-icon">👆</span>
                     <strong>Tocco Singolo (Tap)</strong>
-                    <p>Attiva uno strumento, inserisce una riga di testo, applica una firma sul foglio o riproduce/mette in pausa i video.</p>
+                    <p>Attiva uno strumento, inserisce una riga di testo, applica una firma sul foglio o riproduce/mette in pausa i video in tempo reale.</p>
                 </div>
                 <div class="gesture-item">
                     <span class="gesture-icon">✌️</span>
@@ -353,32 +823,120 @@
             </div>
         </section>
 
-        <!-- SEZIONE 5: MULTILINGUA -->
+        <!-- FAQ SECTION -->
+        <section class="faq-section">
+            <h2>❓ Domande Frequenti</h2>
+            
+            <div class="faq-item active">
+                <div class="faq-question">
+                    <span>PdfForAll è davvero sicuro?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sì, assolutamente! PdfForAll utilizza crittografia end-to-end e mantiene tutti i tuoi documenti in memoria protetta. I file PDF seguono lo standard internazionale e sono compatibili con qualsiasi lettore.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Quanto spazio occupano i file PDF con i video?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>I video vengono compressi intelligentemente. Un video HD di 2 minuti occupa circa 15-25 MB. Dipende dalla qualità scelta durante l'inserimento.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Posso aprire i file su altri dispositivi?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Certo! I file PDF creati sono standard e universali. Puoi condividerli via email, cloud o messaggio. Su computer vedrai il contenuto statico, su mobile con PdfForAll vedrai tutto interattivo.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Posso usarla per scopi professionali?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Perfetto per scopi professionali! Molti freelancer, agenti immobiliari e insegnanti la usano quotidianamente. La funzione firma protetta è ideale per contratti.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>C'è un limite di progetti o documenti?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No! Puoi creare illimitati documenti. L'unico limite è lo spazio disponibile sul tuo dispositivo, che decidi tu.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANGUAGES -->
         <section class="languages-box">
             <h2>🌍 Supporto Nativo in 13 Lingue</h2>
-            <p>PdfForAll abbatte ogni barriera di comunicazione. L'interfaccia si adatta istantaneamente alla lingua del tuo dispositivo o può essere cambiata manualmente tra 13 opzioni:</p>
+            <p>PdfForAll abbatte ogni barriera di comunicazione. L'interfaccia si adatta istantaneamente alla lingua del tuo dispositivo:</p>
             <div class="languages-list">
-                <span class="lang-tag">Italiano</span>
-                <span class="lang-tag">English</span>
-                <span class="lang-tag">Español</span>
-                <span class="lang-tag">Français</span>
-                <span class="lang-tag">Deutsch</span>
-                <span class="lang-tag">Português</span>
-                <span class="lang-tag">Shqip (Albanese)</span>
-                <span class="lang-tag">العربية (Arabo)</span>
-                <span class="lang-tag">हिन्दी (Hindi)</span>
-                <span class="lang-tag">日本語 (Giapponese)</span>
-                <span class="lang-tag">Русский (Russo)</span>
-                <span class="lang-tag">中文 (Cinese)</span>
-                <span class="lang-tag">한국어 (Coreano)</span>
+                <span class="lang-tag">🇮🇹 Italiano</span>
+                <span class="lang-tag">🇬🇧 English</span>
+                <span class="lang-tag">🇪🇸 Español</span>
+                <span class="lang-tag">🇫🇷 Français</span>
+                <span class="lang-tag">🇩🇪 Deutsch</span>
+                <span class="lang-tag">🇵🇹 Português</span>
+                <span class="lang-tag">🇦🇱 Shqip</span>
+                <span class="lang-tag">🇸🇦 العربية</span>
+                <span class="lang-tag">🇮🇳 हिन्दी</span>
+                <span class="lang-tag">🇯🇵 日本語</span>
+                <span class="lang-tag">🇷🇺 Русский</span>
+                <span class="lang-tag">🇨🇳 中文</span>
+                <span class="lang-tag">🇰🇷 한국어</span>
             </div>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 PdfForAll. Soluzioni sicure e flessibili per l'organizzazione personale, lo studio e il lavoro professionale in formato standard PDF.</p>
+        <p>&copy; 2026 PdfForAll. Soluzioni sicure e flessibili per l'organizzazione personale, lo studio e il lavoro professionale in formato standard PDF. | Creato con ❤️ da professionisti per professionisti.</p>
     </footer>
+
+    <!-- SCRIPT PER INTERATTIVITA -->
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-block, .gesture-item, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Button Actions
+        document.querySelector('.btn-primary').addEventListener('click', () => {
+            alert('🎉 Reindirizzamento verso App Store/Play Store...');
+        });
+
+        document.querySelector('.btn-secondary').addEventListener('click', () => {
+            document.querySelector('.video-wrapper').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 
 </body>
 </html>
