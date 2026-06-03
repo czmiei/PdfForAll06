@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PdfForAll - Editor PDF Vettoriale Android</title>
+    <title>PdfForAll - Il tuo cantiere digitale per i documenti</title>
     <style>
         :root {
             --primary-color: #0288d1; /* Azzurro cantiere */
             --accent-color: #ff5722;  /* Arancione bozza */
-            --bg-color: #f5f5f5;
-            --text-color: #333;
+            --dark-color: #1e293b;
+            --bg-color: #f8fafc;
+            --text-color: #334155;
         }
 
         body {
@@ -25,7 +26,8 @@
             background-color: #fff;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--primary-color);
         }
 
         .container {
@@ -36,32 +38,36 @@
 
         .hero {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         .hero h1 {
-            color: var(--primary-color);
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            color: var(--dark-color);
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 800;
         }
 
-        .hero p {
-            font-size: 1.2em;
-            color: #666;
-            max-width: 600px;
+        .hero .subtitle {
+            font-size: 1.3em;
+            color: #64748b;
+            max-width: 750px;
             margin: 0 auto 30px auto;
         }
 
-        /* Tubo per il Video */
+        /* Video Box */
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+        }
+
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* Ratio 16:9 */
             height: 0;
             overflow: hidden;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .video-container iframe {
@@ -73,29 +79,120 @@
             border: 0;
         }
 
-        /* Griglia per gli Screenshot */
+        /* Sezioni delle Funzioni */
+        .feature-section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            color: var(--dark-color);
+        }
+
+        /* Gesti Magici */
+        .gestures-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gesture-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px dashed #cbd5e1;
+            text-align: center;
+        }
+
+        .gesture-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Lingue */
+        .languages-box {
+            text-align: center;
+            background: var(--dark-color);
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+
+        .languages-box h2 {
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .lang-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Gallery */
         .gallery {
+            text-align: center;
             margin-top: 50px;
         }
 
         .gallery h2 {
-            text-align: center;
-            color: var(--primary-color);
+            color: var(--dark-color);
             margin-bottom: 30px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             justify-items: center;
         }
 
         .grid img {
             width: 100%;
-            max-width: 220px;
+            max-width: 200px;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
         }
 
@@ -103,59 +200,166 @@
             transform: scale(1.05);
         }
 
-        /* Footer */
         footer {
-            background-color: #222;
-            color: #fff;
+            background-color: var(--dark-color);
+            color: #94a3b8;
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             margin-top: 60px;
             font-size: 0.9em;
+            border-top: 1px solid #334155;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- Eventuale Logo dell'app -->
         <h2>PdfForAll Beta</h2>
     </header>
 
     <div class="container">
         
-        <!-- Sezione di benvenuto -->
+        <!-- SEZIONE 1: HOMEPAGE -->
         <section class="hero">
-            <h1>L'Editor PDF Vettoriale per Professionisti</h1>
-            <p>Disegna forme CAD, compila moduli, inserisci video e gestisci i tuoi documenti direttamente dal tuo cantiere Android.</p>
+            <h1>PdfForAll: Il tuo ufficio in tasca.</h1>
+            <p class="subtitle">Molto più di un semplice lettore. Un vero spazio di lavoro flessibile progettato per professionisti, architetti, periti, agenti immobiliari, studenti, insegnanti e per organizzare le tue attività personali quotidiane.</p>
+            <p style="font-weight: 600; color: var(--primary-color);">✨ Potenza Desktop. Semplicità Mobile.</p>
         </section>
 
-        <!-- Sezione Video (Qui collegheremo il video caricato su YT/Vimeo) -->
-        <div class="video-container">
-            <!-- Sostituisci l'URL di esempio con l'embed del tuo video montato -->
-            <iframe 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                title="PdfForAll Video Guida" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
+        <!-- Sezione Video Principale -->
+        <div class="video-wrapper">
+            <div class="video-container">
+                <!-- Incolla qui l'embed del tuo video quando sarà caricato -->
+                <iframe 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="PdfForAll Presentazione" 
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
 
-        <!-- Galleria Screenshot -->
+        <!-- SEZIONE 2: LE FUNZIONI CHIAVE -->
+        <section class="feature-section">
+            <h2>🛠️ Strumenti di Lavoro Avanzati</h2>
+            <p>PdfForAll adatta i suoi strumenti al tuo flusso di lavoro quotidiano, offrendo precisione e flessibilità in ogni contesto.</p>
+            
+            <div class="feature-grid">
+                
+                <!-- SCANNER AVANZATO -->
+                <div class="feature-card">
+                    <h3>🔍 Scanner Intelligente & Lente OCR</h3>
+                    <p>Trasforma la fotocamera in uno scanner professionale ad alta risoluzione. Grazie a Google ML Kit, l'app corregge ombre, sfocature ed elimina le imperfezioni della carta. Con la <strong>Lente d'Ingrandimento OCR</strong> puoi analizzare e selezionare testi da documenti stampati, copiarli o ascoltarli grazie alla <strong>Lettura Vocale Integrata (TTS)</strong>.</p>
+                </div>
+
+                <!-- FOTOGRAFIA PROSPETTICA -->
+                <div class="feature-card">
+                    <h3>📸 Prospettiva e Maschere</h3>
+                    <p>Inserisci immagini e raddrizza automaticamente l'inquadratura sul foglio con il ritagliatore prospettico. Il <strong>Tentacolo di Rotazione Magnetica</strong> ti guida con una vibrazione e una linea rossa visiva ai punti cardine (0°, 90°, 180°). Puoi ritagliare le foto con forme personalizzate (stella, cuore) o applicare filtri grafici al volo.</p>
+                </div>
+
+                <!-- VIDEO SU PDF -->
+                <div class="feature-card">
+                    <h3>🎥 Integrazione Video (MP4)</h3>
+                    <p>Arricchisci i tuoi documenti integrando filmati MP4 locali direttamente sulle pagine del file. Controlla la riproduzione, ridimensiona la finestra e cambia la velocità di riproduzione con un semplice tocco direttamente all'interno del PDF.</p>
+                </div>
+
+                <!-- BIANCHETTO DIGITALE -->
+                <div class="feature-card">
+                    <h3>✍️ Edit Testo e "Bianchetto"</h3>
+                    <p>La calamita intelligente allinea le parole ai margini ideali. Se devi correggere un documento scansionato o stampato, la funzione "Sostituisci" rileva il colore esatto dello sfondo del foglio creando una copertura invisibile su cui riscrivere il testo corretto.</p>
+                </div>
+
+                <!-- DISEGNO CAD -->
+                <div class="feature-card">
+                    <h3>📐 Forme Vettoriali e Firme</h3>
+                    <p>Disegna linee, rettangoli e cerchi precisi grazie al modellatore geometrico a nodi. Applica la tua firma in totale sicurezza: lo <strong>Scudo di Protezione</strong> impedisce deformazioni o modifiche accidentali dell'immagine una volta inserita.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEZIONE 3: ARCHIVIO E BACKUP -->
+        <section class="feature-section">
+            <h2>🗂️ Organizzazione Intelligente dei File</h2>
+            <p>Gestisci i tuoi documenti in modo ordinato grazie al sistema integrato di catalogazione e salvataggio sicuro.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>📁 Gestione e CRM Cliente</h3>
+                    <p>Organizza i documenti in cartelle dedicate. L'applicazione analizza il tipo di file e lo indirizza automaticamente al percorso del cliente corretto, facilitando la compilazione e la ricerca dei dati.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🍊 Stato Bozza (Bordo Arancione)</h3>
+                    <p>Salva i file in modalità "Bozza" per mantenere tutti gli elementi grafici, i video e i testi ancora editabili sul piano di lavoro. L'anteprima si colorerà con un bordo arancione protettivo.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 Esportazione in Cassa ZIP</h3>
+                    <p>Devi trasferire l'archivio su un nuovo dispositivo? Genera un pacchetto ZIP strutturato direttamente dall'app. Al ripristino, le nuove cartelle importate verranno evidenziate in azzurro per mostrarti subito le novità.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 4: GUIDA RAPIDA - I GESTI MAGICI -->
+        <section class="feature-section">
+            <h2>📖 Manuale d'Uso Rapido</h2>
+            <p>Interfaccia pulita senza menu complessi. Controlla ogni funzione attraverso tre semplici gesti:</p>
+            
+            <div class="gestures-list">
+                <div class="gesture-item">
+                    <span class="gesture-icon">👆</span>
+                    <strong>Tocco Singolo (Tap)</strong>
+                    <p>Attiva uno strumento sulla barra, inserisci testo o firma sul foglio, oppure avvia/metti in pausa un file video.</p>
+                </div>
+                <div class="gesture-item">
+                    <span class="gesture-icon">✌️</span>
+                    <strong>Doppio Tocco (Double Tap)</strong>
+                    <p>Entra in modalità modellazione su foto e video, riapri la tastiera per correggere un testo, o fai uno zoom rapido nel vuoto.</p>
+                </div>
+                <div class="gesture-item">
+                    <span class="gesture-icon">⏱️</span>
+                    <strong>Tocco Prolungato (Long Press)</strong>
+                    <p>Accedi alle impostazioni avanzate degli strumenti (colore, spessore), apri la tavolozza RGB sul foglio, o attiva la multiselezione nell'archivio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 5: MULTILINGUA -->
+        <section class="languages-box">
+            <h2>🌍 Progettato per un Utilizzo Internazionale</h2>
+            <p>PdfForAll supporta nativamente 13 lingue differenti, adattandosi automaticamente alla lingua del dispositivo o permettendo una selezione manuale immediata dal menu delle impostazioni:</p>
+            <div class="languages-list">
+                <span class="lang-tag">Italiano</span>
+                <span class="lang-tag">English</span>
+                <span class="lang-tag">Español</span>
+                <span class="lang-tag">Français</span>
+                <span class="lang-tag">Deutsch</span>
+                <span class="lang-tag">Português</span>
+                <span class="lang-tag">Shqip (Albanese)</span>
+                <span class="lang-tag">العربية (Arabo)</span>
+                <span class="lang-tag">हिन्दी (Hindi)</span>
+                <span class="lang-tag">日本語 (Giapponese)</span>
+                <span class="lang-tag">Русский (Russo)</span>
+                <span class="lang-tag">中文 (Cinese)</span>
+                <span class="lang-tag">한국어 (Coreano)</span>
+            </div>
+        </section>
+
+        <!-- SEZIONE SCREENSHOTS -->
         <section class="gallery">
-            <h2>Esplora le Funzionalità</h2>
+            <h2>📸 Interfaccia dell'Applicazione</h2>
             <div class="grid">
-                <!-- Sostituiremo questi placeholder con i tuoi screenshot reali -->
-                <img src="https://via.placeholder.com/220x450?text=Schermata+1" alt="Screenshot PdfForAll 1">
-                <img src="https://via.placeholder.com/220x450?text=Schermata+2" alt="Screenshot PdfForAll 2">
-                <img src="https://via.placeholder.com/220x450?text=Schermata+3" alt="Screenshot PdfForAll 3">
-                <img src="https://via.placeholder.com/220x450?text=Schermata+4" alt="Screenshot PdfForAll 4">
+                <!-- Trascina i tuoi screenshot reali nella cartella e sostituisci i nomi qui sotto -->
+                <img src="https://via.placeholder.com/200x420?text=Scanner+OCR" alt="Screenshot 1">
+                <img src="https://via.placeholder.com/200x420?text=Video+e+CAD" alt="Screenshot 2">
+                <img src="https://via.placeholder.com/200x420?text=CRM+Cartelle" alt="Screenshot 3">
+                <img src="https://via.placeholder.com/200x420?text=Firma+Protetta" alt="Screenshot 4">
             </div>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 PdfForAll. Sviluppato con passione per i professionisti in movimento.</p>
+        <p>&copy; 2026 PdfForAll. Soluzioni flessibili per lo studio, il lavoro e l'organizzazione personale quotidiana.</p>
     </footer>
 
 </body>
