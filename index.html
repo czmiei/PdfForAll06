@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PdfForAll - Editor PDF Vettoriale Android</title>
+    <style>
+        :root {
+            --primary-color: #0288d1; /* Azzurro cantiere */
+            --accent-color: #ff5722;  /* Arancione bozza */
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Tubo per il Video */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Griglia per gli Screenshot */
+        .gallery {
+            margin-top: 50px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .grid img {
+            width: 100%;
+            max-width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .grid img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Eventuale Logo dell'app -->
+        <h2>PdfForAll Beta</h2>
+    </header>
+
+    <div class="container">
+        
+        <!-- Sezione di benvenuto -->
+        <section class="hero">
+            <h1>L'Editor PDF Vettoriale per Professionisti</h1>
+            <p>Disegna forme CAD, compila moduli, inserisci video e gestisci i tuoi documenti direttamente dal tuo cantiere Android.</p>
+        </section>
+
+        <!-- Sezione Video (Qui collegheremo il video caricato su YT/Vimeo) -->
+        <div class="video-container">
+            <!-- Sostituisci l'URL di esempio con l'embed del tuo video montato -->
+            <iframe 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                title="PdfForAll Video Guida" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Galleria Screenshot -->
+        <section class="gallery">
+            <h2>Esplora le Funzionalità</h2>
+            <div class="grid">
+                <!-- Sostituiremo questi placeholder con i tuoi screenshot reali -->
+                <img src="https://via.placeholder.com/220x450?text=Schermata+1" alt="Screenshot PdfForAll 1">
+                <img src="https://via.placeholder.com/220x450?text=Schermata+2" alt="Screenshot PdfForAll 2">
+                <img src="https://via.placeholder.com/220x450?text=Schermata+3" alt="Screenshot PdfForAll 3">
+                <img src="https://via.placeholder.com/220x450?text=Schermata+4" alt="Screenshot PdfForAll 4">
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PdfForAll. Sviluppato con passione per i professionisti in movimento.</p>
+    </footer>
+
+</body>
+</html>
