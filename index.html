@@ -213,6 +213,14 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        /* Stile contatore visite */
+        .counter-wrapper {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         footer {
             background-color: var(--dark-color);
             color: #94a3b8;
@@ -316,7 +324,7 @@
             <div class="feature-block">
                 <h3>🍊 Salvataggio in Bozza o Archivio Sigillato</h3>
                 <p>Gestisci lo stato del file. Salva in **Bozza** (con un elegante bordo arancione di avviso sulla cartella) per poter riaprire il PDF e modificare nuovamente tutti i video, le immagini e le forme inserite. Salva in **Archivio Sigillato** per appiattire e bloccare definitivamente tutti gli elementi in un file PDF protetto e immodificabile, pronto da spedire.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** L'Archiviazione esegue il "flattening" del documento, transforming gli elementi modificabili in una struttura fissa conforme agli standard internazionali di sicurezza PDF.</div>
+                <div class="pdf-guarantee">📄 **Sicurezza PDF:** L'Archiviazione esegue il "flattening" del documento, trasformando gli elementi modificabili in una struttura fissa conforme agli standard internazionali di sicurezza PDF.</div>
                 <!-- SPAZIO SCREENSHOT BOZZE -->
                 <img src="https://via.placeholder.com/500x280?text=Screenshot:+Bozze+e+Archivio+Sigillato" class="screenshot-placeholder" alt="Screenshot Bozze">
             </div>
@@ -379,6 +387,11 @@
 
     <footer>
         <p>&copy; 2026 PdfForAll. Soluzioni sicure e flessibili per l'organizzazione personale, lo studio e il lavoro professionale in formato standard PDF.</p>
+        
+        <!-- CONTATORE VISITE INCORPORATO -->
+        <div class="counter-wrapper">
+            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fczmiei.github.io%2FPdfForAll06%2F&count_bg=%23e11d48&title_bg=%230f172a&icon=&icon_color=%23e7e7e7&title=Visite&edge_flat=false" alt="Contatore Visite"/>
+        </div>
     </footer>
 
 </body>
