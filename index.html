@@ -7,6 +7,7 @@
     <style>
         :root {
             --primary-color: #e11d48; /* Rosso brand */
+            --google-play-green: #01875f; /* Il classico verde ufficiale Google Play */
             --blue-accent: #0288d1;   /* Azzurro dettagli */
             --dark-color: #0f172a;
             --bg-color: #f8fafc;
@@ -123,19 +124,21 @@
             border: 2px solid rgba(255, 255, 255, 0.1);
             text-align: left;
             min-width: 220px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .download-btn:hover:not(.disabled) {
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
 
         .download-btn.android {
-            background-color: var(--blue-accent);
-            border-color: var(--blue-accent);
+            background-color: var(--google-play-green); /* VERDE GOOGLE PLAY */
+            border-color: var(--google-play-green);
         }
 
         .download-btn.android:hover {
-            background-color: #0277bd;
+            background-color: #016f4e; /* Verde leggermente più scuro per l'effetto hover */
         }
 
         .download-btn.windows {
@@ -153,7 +156,7 @@
             font-size: 0.75em;
             font-weight: 400;
             display: block;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .download-btn .btn-title {
@@ -402,10 +405,10 @@
                 PdfForAll non è la solita applicazione di sola lettura o editing parziale. È una suite avanzatissima che supporta nativamente **tutte le annotazioni standard del formato PDF** (disegni a mano libera, note, evidenziazioni e forme geometriche) e, per la prima volta su smartphone, introduce funzionalità rivoluzionarie come l'inserimento di **Album Fotografici raddrizzati prospetticamente** e **Video MP4 Interattivi** perfettamente fusi nel foglio. Sicurezza totale dello standard, compatibilità universale su ogni dispositivo.
             </p>
 
-            <!-- PULSANTI DOWNLOAD INIZIALI (STRATEGICI) -->
+            <!-- PULSANTI DOWNLOAD INIZIALI (AGGIORNATI COL VERDE PLAY STORE E LINK REALE) -->
             <div class="download-container">
-                <a href="https://play.google.com/store" target="_blank" class="download-btn android">
-                    <span class="btn-icon">🤖</span>
+                <a href="https://play.google.com/store/apps/details?id=com.sergio73.pdfforall" target="_blank" class="download-btn android">
+                    <span class="btn-icon">▶️</span>
                     <div>
                         <span class="btn-subtitle">Disponibile ora per</span>
                         <span class="btn-title">Android (Play Store)</span>
@@ -636,8 +639,8 @@
             <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 30px auto;">Scarica l'applicazione oggi stesso ed entra nel primo vero cantiere digitale per gestire al meglio studio, lavoro e tempo libero.</p>
             
             <div class="download-container" style="margin: 0;">
-                <a href="https://play.google.com/store" target="_blank" class="download-btn android">
-                    <span class="btn-icon">🤖</span>
+                <a href="https://play.google.com/store/apps/details?id=com.sergio73.pdfforall" target="_blank" class="download-btn android">
+                    <span class="btn-icon">▶️</span>
                     <div>
                         <span class="btn-subtitle">Disponibile ora per</span>
                         <span class="btn-title">Android (Play Store)</span>
