@@ -6,8 +6,8 @@
     <title>PdfForAll - Il tuo ufficio in tasca</title>
     <style>
         :root {
-            --primary-color: #e11d48; /* Rosso deciso per il brand */
-            --blue-accent: #0288d1;   /* Azzurro per dettagli e bottoni */
+            --primary-color: #e11d48; /* Rosso brand */
+            --blue-accent: #0288d1;   /* Azzurro dettagli */
             --dark-color: #0f172a;
             --bg-color: #f8fafc;
             --text-color: #334155;
@@ -39,7 +39,6 @@
             font-weight: 800;
         }
 
-        /* Selettore Lingua */
         .lang-switcher {
             font-size: 0.95em;
             font-weight: 600;
@@ -73,7 +72,7 @@
         }
 
         .hero h1 {
-            color: var(--primary-color); /* TITOLO IN ROSSO */
+            color: var(--primary-color);
             font-size: 3em;
             margin-bottom: 15px;
             font-weight: 900;
@@ -100,24 +99,24 @@
             border: 1px solid #bbf7d0;
         }
 
-        /* Video Box CALIBRATO PER SCHERMI ALLUNGATI MODERNI */
-        .video-wrapper {
-            max-width: 310px; /* Spremuto per renderlo più snello */
-            margin: 0 auto 50px auto;
+        /* Classe Smartphone virtuale modulare */
+        .smartphone-mockup {
+            max-width: 290px;
+            margin: 30px auto;
         }
 
-        .video-container {
+        .smartphone-screen {
             position: relative;
-            padding-bottom: 220%; /* Aumentato a 220% per eliminare le bande nere laterali */
+            padding-bottom: 220%; /* Formato allungato moderno */
             height: 0;
             overflow: hidden;
-            border-radius: 28px; /* Smussatura degli angoli migliorata */
+            border-radius: 28px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border: 6px solid #1e293b; /* Cornice smartphone */
+            border: 6px solid #1e293b;
             background-color: #000;
         }
 
-        .video-container iframe {
+        .smartphone-screen iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -126,7 +125,6 @@
             border: 0;
         }
 
-        /* Sezioni delle Funzioni */
         .feature-section {
             background: #fff;
             padding: 40px;
@@ -138,25 +136,26 @@
 
         .feature-section h2 {
             color: var(--dark-color);
-            font-size: 2em;
+            font-size: 2.2em;
             margin-top: 0;
             border-bottom: 2px solid #f1f5f9;
             padding-bottom: 15px;
             text-align: center;
+            font-weight: 800;
         }
 
         .feature-block {
             background: #f8fafc;
             padding: 25px;
             border-radius: 12px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             border: 1px solid #e2e8f0;
         }
 
         .feature-block h3 {
             margin-top: 0;
             color: var(--primary-color);
-            font-size: 1.4em;
+            font-size: 1.45em;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -179,13 +178,12 @@
             font-weight: 500;
         }
 
-        /* Legenda dei Pallini (Tentacoli) */
         .tentacles-legend {
             background: #fff;
             padding: 15px;
             border-radius: 8px;
             border: 1px solid #e2e8f0;
-            margin-top: 15px;
+            margin: 20px 0;
         }
 
         .tentacles-legend h4 {
@@ -207,7 +205,6 @@
             align-items: center;
         }
 
-        /* Pallini Colorati HTML */
         .dot {
             display: inline-block;
             width: 14px;
@@ -225,10 +222,9 @@
         .dot.black { background-color: #000000; }
         .dot.white { background-color: #ffffff; border: 1px solid #cbd5e1; }
 
-        /* Griglia Screenshots Affiancati */
         .screenshot-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
@@ -245,7 +241,6 @@
             transform: scale(1.02);
         }
 
-        /* Gesti Magici */
         .gestures-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -267,7 +262,6 @@
             display: block;
         }
 
-        /* Lingue */
         .languages-box {
             text-align: center;
             background: var(--dark-color);
@@ -298,7 +292,6 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Stile contatore visite */
         .counter-wrapper {
             margin-top: 25px;
             display: flex;
@@ -321,7 +314,6 @@
 
     <header>
         <span class="logo-title">PdfForAll</span>
-        <!-- SELETTORE LINGUA -->
         <div class="lang-switcher">
             <a href="index.html" class="active">IT</a> | 
             <a href="index_en.html">EN</a>
@@ -330,16 +322,16 @@
 
     <div class="container">
         
-        <!-- SEZIONE 1: HOMEPAGE CON TITOLO IN ROSSO -->
+        <!-- SEZIONE 1: HOMEPAGE -->
         <section class="hero">
             <span class="badge-secure">🔒 Standard PDF Sicuro & Compatibile al 100%</span>
             <h1>PdfForAll: Il tuo ufficio in tasca.</h1>
             <p class="subtitle">La prima applicazione mobile che permette di inserire Album Fotografici e Video Interattivi direttamente all'interno di documenti in formato standard PDF. Sicurezza inviolabile, compatibilità universale.</p>
         </section>
 
-        <!-- Sezione Video Principale (Smartphone calibrato al millimetro) -->
-        <div class="video-wrapper">
-            <div class="video-container">
+        <!-- Video Principale di Presentazione -->
+        <div class="smartphone-mockup">
+            <div class="smartphone-screen">
                 <iframe 
                     src="https://www.youtube.com/embed/fb3d8sxlC_g" 
                     title="PdfForAll Presentazione" 
@@ -348,14 +340,14 @@
             </div>
         </div>
 
-        <!-- SEZIONE 2: LE FUNZIONI CHIAVE CON SPAZIO SCREENSHOT -->
+        <!-- SEZIONE 2: LE FUNZIONI CHIAVE -->
         <section class="feature-section">
             <h2>🛠️ Strumenti Rivoluzionari</h2>
             
-            <!-- VIDEO SU PDF (PUNTA DI DIAMANTE) -->
+            <!-- VIDEO SU PDF -->
             <div class="feature-block">
                 <h3>🎥 La Magia dei Video su PDF (Esclusiva Mondiale)</h3>
-                <p>Una foto statica non basta per spiegare una situazione o fare una lezione? **Incolla un vero video sul foglio!** PdfForAll ti permette di incorporare filmati MP4 interattivi direttamente sulle pagine del documento. Clicca su "Play" e guarda il video attivarsi all'interno del foglio, regolando dimensioni e velocità.</p>
+                <p>Una foto statica non basta per spiegare una situazione? **Incolla un vero video sul foglio!** PdfForAll ti permette di incorporare filmati MP4 interattivi direttamente sulle pagine del documento. Clicca su "Play" e guarda il video attivarsi all'interno del foglio, regolando dimensioni e velocità.</p>
                 <div class="pdf-guarantee">📄 **Sicurezza PDF:** I video vengono integrati sfruttando una struttura dati cifrata all'interno dello standard PDF, mantenendo il file protetto da alterazioni e perfettamente stabile.</div>
                 
                 <!-- LEGENDA VIDEO TENTACOLI -->
@@ -371,10 +363,31 @@
                     </ul>
                 </div>
 
-                <!-- GRIGLIA VIDEO SCREENSHOTS -->
                 <div class="screenshot-grid">
-                    <img src="video_ovale.png" onerror="this.src='https://via.placeholder.com/300x600?text=Esempio+Video+Ovale'" alt="Screenshot Video Ovale">
-                    <img src="video_rettangolo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Esempio+Video+Rettangolare'" alt="Screenshot Video Rettangolare">
+                    <img src="video_ovale.png" onerror="this.src='https://via.placeholder.com/300x600?text=Video+Ovale+Inclinato'" alt="Screenshot Video Ovale">
+                    <img src="video_rettangolo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Video+Rettangolare'" alt="Screenshot Video Rettangolare">
+                </div>
+            </div>
+
+            <!-- SCANNER AVANZATO -->
+            <div class="feature-block">
+                <h3>🔍 Lo Scanner Intelligente (Scansione Multipla e OCR)</h3>
+                <p>Acquisisci qualsiasi testo o foglio cartaceo con la fotocamera. Grazie agli algoritmi di intelligenza artificiale Google ML Kit, l'app rimuove ombre, raddrizza le pieghe e pulisce lo sfondo. Supporta la **Scansione Multipla** di più pagine contemporaneamente e ti permette di **allegarle ad altre pagine** già esistenti nel tuo file PDF.</p>
+                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Ogni scansione viene generata direttamente in formato PDF ad alta definizione. Con l'esclusiva **Lente d'Ingrandimento OCR** selezioni e copi il testo da immagini e scansioni per ascoltarlo ad alta voce con il lettore vocale (TTS).</div>
+                
+                <!-- SMARTPHONE VIDEO SCANNER -->
+                <div class="smartphone-mockup">
+                    <div class="smartphone-screen">
+                        <iframe 
+                            src="https://www.youtube.com/embed/vBtMCwPNx1c" 
+                            title="PdfForAll Scanner Demo" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="screenshot-grid" style="grid-template-columns: 1fr; max-width: 300px; margin: 0 auto;">
+                    <img src="ocr_estrai_testo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Estrai+Testo+OCR'" alt="Screenshot Estrai Testo OCR">
                 </div>
             </div>
 
@@ -397,32 +410,45 @@
                     </ul>
                 </div>
 
-                <!-- GRIGLIA FOTO SCREENSHOTS -->
                 <div class="screenshot-grid">
                     <img src="foto_stella.png" onerror="this.src='https://via.placeholder.com/300x600?text=Esempio+Foto+a+Stella'" alt="Screenshot Foto Stella">
                     <img src="foto_paesaggio.png" onerror="this.src='https://via.placeholder.com/300x600?text=Esempio+Foto+Paesaggio'" alt="Screenshot Foto Paesaggio">
                 </div>
             </div>
 
-            <!-- SCANNER AVANZATO -->
+            <!-- BIANCHETTO DIGITALE & TOOLBAR SCRITTURA -->
             <div class="feature-block">
-                <h3>🔍 Lo Scanner Intelligente (OCR e Lettura Vocale)</h3>
-                <p>Acquisisci qualsiasi testo o foglio cartaceo con la fotocamera. Grazie agli algoritmi di intelligenza artificiale Google ML Kit, l'app rimuove ombre, raddrizza le pieghe e pulisce lo sfondo. Con la speciale Lente d'Ingrandimento OCR selezioni il testo dalle immagini per copiarlo o farlo leggere ad alta voce dal lettore vocale (TTS) integrato.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Ogni scansione viene impacchettata e convertita all'istante in un file PDF standard ad alta risoluzione, pronto per l'invio sicuro.</div>
-            </div>
-
-            <!-- BIANCHETTO DIGITALE -->
-            <div class="feature-block">
-                <h3>✍️ Editing Testo e "Bianchetto Digitale"</h3>
+                <h3>✍️ Editing Testo, "Bianchetto" e Toolbar Scrittura</h3>
                 <p>Modifica e allinea i testi con precisione millimetrica. Se devi correggere un documento scansionato, la funzione intelligente di Sostituzione analizza il colore del foglio cartaceo di sfondo, crea una maschera coprente invisibile (bianchetto) e ti permette di scrivere sopra il nuovo testo con lo stesso allineamento.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Le modifiche testuali generano elementi vettoriali standard sovrapposti, garantendo la compatibilità visiva su qualsiasi computer o lettore esterno.</div>
+                
+                <!-- TOOLBAR SCRITTURA DETAILS -->
+                <div class="pdf-guarantee">
+                    <strong>🖋️ Come funziona la Toolbar di Scrittura:</strong><br>
+                    • **Barra Strumenti Superiore:** Scegli la famiglia del font (es. Sans Serif), imposta la dimensione del carattere (es. 22pt), gestisci colori, stili e allineamento.<br>
+                    • **Scelta del Foglio:** Scegli il tipo di foglio ideale per i tuoi appunti: Bianco, A Righe, A Quadretti o Foglio Disegno.<br>
+                    • **Salvataggio & Sicurezza:** Clicca su **FINE SCRIVI** per confermare e usa l'icona del **Lucchetto** per bloccare lo scorrimento degli elementi e proteggere il testo da spostamenti accidentali.
+                </div>
+
+                <div class="screenshot-grid">
+                    <img src="scrittura_testo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Toolbar+Scrittura+Righe'" alt="Screenshot Scrittura Testo">
+                    <img src="nuovo_documento.png" onerror="this.src='https://via.placeholder.com/300x600?text=Wizard+Nuovo+Documento'" alt="Screenshot Nuovo Documento">
+                </div>
             </div>
 
             <!-- DISEGNO CAD -->
             <div class="feature-block">
-                <h3>📐 Disegno Vettoriale e Firme Protette</h3>
+                <h3>📐 Disegno Vettoriale CAD e Firme Protette</h3>
                 <p>Traccia linee, forme geometriche, cerchi e rettangoli con il modellatore vettoriale a nodi. Applica la tua firma formale o commerciale: l'app crea uno speciale "Scudo di Protezione" che blocca l'immagine della firma, rendendola impossibile da modificare, deformare o rimuovere per errore dal foglio.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** La firma e i disegni vengono salvati come dati vettoriali leggeri protetti da modifiche non autorizzate, ideali per contratti e report ufficiali.</div>
+                
+                <div class="pdf-guarantee">
+                    <strong>🎨 La Toolbar di Disegno:</strong><br>
+                    Scegli tra Mano Libera (Levigata), Linea Dritta, Rettangolo o Cerchio/Ovale. Regola lo spessore del tratto e cambia il colore di riempimento e bordo in tempo reale.
+                </div>
+
+                <div class="screenshot-grid">
+                    <img src="disegno_vettoriale.png" onerror="this.src='https://via.placeholder.com/300x600?text=Disegno+Vettoriale+CAD'" alt="Screenshot Disegno Vettoriale">
+                    <img src="strumenti_disegno.png" onerror="this.src='https://via.placeholder.com/300x600?text=Menu+Strumenti+Disegno'" alt="Screenshot Strumenti Disegno">
+                </div>
             </div>
 
         </section>
@@ -433,20 +459,40 @@
             
             <div class="feature-block">
                 <h3>📁 Archivio Clienti & Mini-CRM</h3>
-                <p>Organizza i documenti dei tuoi clienti ordinatamente in cartelle fisiche protette sul dispositivo. L'app riconosce a quale cartella appartiene il documento e lo organizza automaticamente, consentendoti di suddividere file di lavoro, studio o documenti personali per una consultazione rapida.</p>
+                <p>Organizza i documenti dei tuoi clienti ordinatamente in cartelle fisiche dedicate sul dispositivo. L'app riconosce a quale cartella appartiene il documento e lo organizza automaticamente, consentendoti di suddividere file di lavoro, studio o documenti personali per una consultazione rapida.</p>
                 <div class="pdf-guarantee">📄 **Sicurezza PDF:** Ogni documento risiede nella memoria protetta dell'applicazione in formato PDF nativo, pronto per essere protetto o archiviato.</div>
             </div>
 
             <div class="feature-block">
                 <h3>🍊 Salvataggio in Bozza o Archivio Sigillato</h3>
                 <p>Gestisci lo stato del file. Salva in **Bozza** (con un elegante bordo arancione di avviso sulla cartella) per poter riaprire il PDF e modificare nuovamente tutti i video, le immagini e le forme inserite. Salva in **Archivio Sigillato** per appiattire e bloccare definitivamente tutti gli elementi in un file PDF protetto e immodificabile, pronto da spedire.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** L'Archiviazione esegue il "flattening" del documento, trasformando gli elementi modificabili in una struttura fissa conforme agli standard internazionali di sicurezza PDF.</div>
+                
+                <!-- SMARTPHONE VIDEO ARCHIVIO -->
+                <div class="smartphone-mockup">
+                    <div class="smartphone-screen">
+                        <iframe 
+                            src="https://www.youtube.com/embed/FRAInieVwxk" 
+                            title="PdfForAll Archivio Demo" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
             </div>
 
             <div class="feature-block">
                 <h3>📦 Backup Sicuro in formato ZIP</h3>
                 <p>Esporta interi gruppi di cartelle in un singolo file compresso (.ZIP) per trasferire i tuoi dati su un nuovo telefono o inviarli a colleghi e collaboratori. All'estrazione dell'archivio, le nuove cartelle importate si illumineranno di azzurro per segnalarti immediatamente i nuovi elementi pronti.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Lo ZIP mantiene intatta la struttura delle cartelle e l'integrità dei file PDF originari senza comprometterne la cifratura.</div>
+                
+                <!-- SMARTPHONE VIDEO BACKUP -->
+                <div class="smartphone-mockup">
+                    <div class="smartphone-screen">
+                        <iframe 
+                            src="https://www.youtube.com/embed/yRAaTlD4cQk" 
+                            title="PdfForAll Backup Demo" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </section>
 
