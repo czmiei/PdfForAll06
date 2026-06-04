@@ -68,7 +68,7 @@
 
         .hero {
             text-align: center;
-            padding: 50px 20px 30px 20px;
+            padding: 50px 20px 20px 20px;
         }
 
         .hero h1 {
@@ -83,7 +83,7 @@
             font-size: 1.25em;
             color: #475569;
             max-width: 800px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 20px auto;
             font-weight: 500;
             text-align: justify;
         }
@@ -98,6 +98,67 @@
             font-size: 0.9em;
             margin-bottom: 20px;
             border: 1px solid #bbf7d0;
+        }
+
+        /* Pulsanti di Download Strutturati */
+        .download-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--dark-color);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            min-width: 220px;
+        }
+
+        .download-btn:hover:not(.disabled) {
+            transform: translateY(-2px);
+        }
+
+        .download-btn.android {
+            background-color: var(--blue-accent);
+            border-color: var(--blue-accent);
+        }
+
+        .download-btn.android:hover {
+            background-color: #0277bd;
+        }
+
+        .download-btn.windows {
+            background-color: #64748b;
+            border-color: #475569;
+            opacity: 0.75;
+            cursor: not-allowed;
+        }
+
+        .download-btn .btn-icon {
+            font-size: 2em;
+        }
+
+        .download-btn .btn-subtitle {
+            font-size: 0.75em;
+            font-weight: 400;
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .download-btn .btn-title {
+            font-size: 1.05em;
+            display: block;
         }
 
         /* Classe Smartphone virtuale */
@@ -340,6 +401,24 @@
             <p class="subtitle">
                 PdfForAll non è la solita applicazione di sola lettura o editing parziale. È una suite avanzatissima che supporta nativamente **tutte le annotazioni standard del formato PDF** (disegni a mano libera, note, evidenziazioni e forme geometriche) e, per la prima volta su smartphone, introduce funzionalità rivoluzionarie come l'inserimento di **Album Fotografici raddrizzati prospetticamente** e **Video MP4 Interattivi** perfettamente fusi nel foglio. Sicurezza totale dello standard, compatibilità universale su ogni dispositivo.
             </p>
+
+            <!-- PULSANTI DOWNLOAD INIZIALI (STRATEGICI) -->
+            <div class="download-container">
+                <a href="https://play.google.com/store" target="_blank" class="download-btn android">
+                    <span class="btn-icon">🤖</span>
+                    <div>
+                        <span class="btn-subtitle">Disponibile ora per</span>
+                        <span class="btn-title">Android (Play Store)</span>
+                    </div>
+                </a>
+                <div class="download-btn windows disabled">
+                    <span class="btn-icon">🪟</span>
+                    <div>
+                        <span class="btn-subtitle">Prossimamente per</span>
+                        <span class="btn-title">Windows PC</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Video Principale di Presentazione -->
@@ -551,19 +630,42 @@
             </div>
         </section>
 
+        <!-- SEZIONE 6: BOX DI INVITO AL DOWNLOAD FINALE (CALL TO ACTION) -->
+        <section class="feature-section" style="text-align: center; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #fff; border: none; margin-top: 40px;">
+            <h2 style="color: #fff; border: none; margin-bottom: 10px;">Pronto a liberare la potenza dei tuoi PDF?</h2>
+            <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 30px auto;">Scarica l'applicazione oggi stesso ed entra nel primo vero cantiere digitale per gestire al meglio studio, lavoro e tempo libero.</p>
+            
+            <div class="download-container" style="margin: 0;">
+                <a href="https://play.google.com/store" target="_blank" class="download-btn android">
+                    <span class="btn-icon">🤖</span>
+                    <div>
+                        <span class="btn-subtitle">Disponibile ora per</span>
+                        <span class="btn-title">Android (Play Store)</span>
+                    </div>
+                </a>
+                <div class="download-btn windows disabled" style="background-color: #475569;">
+                    <span class="btn-icon">🪟</span>
+                    <div>
+                        <span class="btn-subtitle">Prossimamente per</span>
+                        <span class="btn-title">Windows PC</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <footer>
         <p>&copy; 2026 PdfForAll. Soluzioni sicure e flessibili per l'organizzazione personale, lo studio e il lavoro professionale in formato standard PDF.</p>
         
-        <!-- CONTATORE VISITE SICURO JAVASCRIPT (Senza immagini esterne rotte) -->
+        <!-- CONTATORE VISITE SICURO JAVASCRIPT -->
         <div class="counter-wrapper">
             <span>👁️ Visite al cantiere:</span>
             <span id="visit-count">...</span>
         </div>
     </footer>
 
-    <!-- Script ultra-leggero per aggiornare le visite in modo sicuro -->
+    <!-- Script sicuro per contatore senza immagini rotte -->
     <script>
         fetch('https://api.counterapi.dev/v1/czmiei/pdfforall/up')
             .then(response => response.json())
