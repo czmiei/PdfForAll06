@@ -72,7 +72,7 @@
         }
 
         .hero h1 {
-            color: var(--primary-color);
+            color: var(--primary-color); /* TITOLO IN ROSSO */
             font-size: 3em;
             margin-bottom: 15px;
             font-weight: 900;
@@ -80,11 +80,12 @@
         }
 
         .hero .subtitle {
-            font-size: 1.3em;
+            font-size: 1.25em;
             color: #475569;
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto 30px auto;
             font-weight: 500;
+            text-align: justify;
         }
 
         .badge-secure {
@@ -99,7 +100,7 @@
             border: 1px solid #bbf7d0;
         }
 
-        /* Classe Smartphone virtuale modulare */
+        /* Classe Smartphone virtuale */
         .smartphone-mockup {
             max-width: 290px;
             margin: 30px auto;
@@ -224,7 +225,7 @@
 
         .screenshot-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
@@ -292,11 +293,21 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        /* Stile contatore visite testuale sicuro */
         .counter-wrapper {
-            margin-top: 25px;
+            margin-top: 20px;
+            font-size: 1em;
+            font-weight: 700;
+            color: var(--primary-color);
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 8px;
+            background-color: rgba(255,255,255,0.05);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-flex;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         footer {
@@ -322,11 +333,13 @@
 
     <div class="container">
         
-        <!-- SEZIONE 1: HOMEPAGE -->
+        <!-- SEZIONE 1: HOMEPAGE (INTRODUZIONE ESTESA) -->
         <section class="hero">
             <span class="badge-secure">🔒 Standard PDF Sicuro & Compatibile al 100%</span>
             <h1>PdfForAll: Il tuo ufficio in tasca.</h1>
-            <p class="subtitle">La prima applicazione mobile che permette di inserire Album Fotografici e Video Interattivi direttamente all'interno di documenti in formato standard PDF. Sicurezza inviolabile, compatibilità universale.</p>
+            <p class="subtitle">
+                PdfForAll non è la solita applicazione di sola lettura o editing parziale. È una suite avanzatissima che supporta nativamente **tutte le annotazioni standard del formato PDF** (disegni a mano libera, note, evidenziazioni e forme geometriche) e, per la prima volta su smartphone, introduce funzionalità rivoluzionarie come l'inserimento di **Album Fotografici raddrizzati prospetticamente** e **Video MP4 Interattivi** perfettamente fusi nel foglio. Sicurezza totale dello standard, compatibilità universale su ogni dispositivo.
+            </p>
         </section>
 
         <!-- Video Principale di Presentazione -->
@@ -344,17 +357,17 @@
         <section class="feature-section">
             <h2>🛠️ Strumenti Rivoluzionari</h2>
             
-            <!-- VIDEO SU PDF -->
+            <!-- VIDEO SU PDF (PUNTA DI DIAMANTE & SERVIDEOPLAYER) -->
             <div class="feature-block">
-                <h3>🎥 La Magia dei Video su PDF (Esclusiva Mondiale)</h3>
-                <p>Una foto statica non basta per spiegare una situazione? **Incolla un vero video sul foglio!** PdfForAll ti permette di incorporare filmati MP4 interattivi direttamente sulle pagine del documento. Clicca su "Play" e guarda il video attivarsi all'interno del foglio, regolando dimensioni e velocità.</p>
+                <h3>🎥 La Magia dei Video su PDF & Motore "SerVideoPlayer"</h3>
+                <p>Una foto statica non basta per spiegare un concetto? **Incolla un vero video sul foglio!** PdfForAll ti permette di incorporare filmati MP4 interattivi direttamente sulle pagine del documento. Grazie all'esclusivo motore integrato **SerVideoPlayer**, la riproduzione è fluida, vettoriale e nativa: puoi controllare la traccia, ridimensionare, ruotare e persino modificare la velocità di riproduzione del filmato direttamente sul PDF.</p>
                 <div class="pdf-guarantee">📄 **Sicurezza PDF:** I video vengono integrati sfruttando una struttura dati cifrata all'interno dello standard PDF, mantenendo il file protetto da alterazioni e perfettamente stabile.</div>
                 
                 <!-- LEGENDA VIDEO TENTACOLI -->
                 <div class="tentacles-legend">
                     <h4>🕹️ I "VideoTentacoli" di Controllo:</h4>
                     <ul>
-                        <li><span class="dot black"></span> <strong>Pallino Nero:</strong> Click singolo per visualizzare e selezionare il telecomando di riproduzione; doppio click per nascondere il telecomando.</li>
+                        <li><span class="dot black"></span> <strong>Pallino Nero:</strong> Click singolo per visualizzare e selezionare il telecomando di riproduzione del player; doppio click per nasconderlo.</li>
                         <li><span class="dot yellow"></span> <strong>Pallino Giallo:</strong> Cambia istantaneamente la maschera di ritaglio della forma video.</li>
                         <li><span class="dot cyan"></span> <strong>Pallino Azzurro:</strong> Ridimensiona e ruota il video con totale libertà sul foglio.</li>
                         <li><span class="dot white"></span> <strong>Pallini Bianchi:</strong> Strumenti di modellazione e deformazione prospettica del video.</li>
@@ -369,11 +382,31 @@
                 </div>
             </div>
 
+            <!-- BIANCHETTO DIGITALE, SCRITTURA & ESTRAZIONE OCR -->
+            <div class="feature-block">
+                <h3>✍️ Editing Testo, "Bianchetto" ed Estrazione Testo OCR</h3>
+                <p>Modifica, correggi e inserisci testo con una precisione millimetrica. Se devi correggere un documento scansionato, la funzione di Sostituzione analizza il colore del foglio, crea una maschera invisibile di "bianchetto virtuale" e ti permette di scriverci sopra. Con l'esclusiva **funzione di Estrazione OCR**, l'app analizza l'immagine e ti permette di selezionare il testo scansionato per copiarlo negli appunti, inviarlo o farlo leggere a voce alta.</p>
+                
+                <!-- TOOLBAR SCRITTURA DETAILS -->
+                <div class="pdf-guarantee">
+                    <strong>🖋️ Come funziona la Toolbar di Scrittura:</strong><br>
+                    • **Barra Superiore di Editing:** Scegli la famiglia del font (es. Sans Serif), imposta la dimensione del carattere (es. 22pt), gestisci colori, stili e allineamento.<br>
+                    • **Scelta del Foglio:** Scegli il tipo di foglio ideale per i tuoi appunti: Bianco, A Righe, A Quadretti o Foglio Disegno.<br>
+                    • **Salvataggio & Sicurezza:** Clicca su **FINE SCRIVI** per confermare e usa l'icona del **Lucchetto** per bloccare lo scorrimento degli elementi e proteggere il testo da spostamenti accidentali.
+                </div>
+
+                <div class="screenshot-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                    <img src="scrittura_testo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Toolbar+Scrittura+Righe'" alt="Screenshot Scrittura Testo">
+                    <img src="nuovo_documento.png" onerror="this.src='https://via.placeholder.com/300x600?text=Wizard+Nuovo+Documento'" alt="Screenshot Nuovo Documento">
+                    <img src="ocr_estrai_testo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Estrai+Testo+OCR'" alt="Screenshot Estrai Testo OCR">
+                </div>
+            </div>
+
             <!-- SCANNER AVANZATO -->
             <div class="feature-block">
-                <h3>🔍 Lo Scanner Intelligente (Scansione Multipla e OCR)</h3>
+                <h3>🔍 Lo Scanner Intelligente (Scansione Multipla)</h3>
                 <p>Acquisisci qualsiasi testo o foglio cartaceo con la fotocamera. Grazie agli algoritmi di intelligenza artificiale Google ML Kit, l'app rimuove ombre, raddrizza le pieghe e pulisce lo sfondo. Supporta la **Scansione Multipla** di più pagine contemporaneamente e ti permette di **allegarle ad altre pagine** già esistenti nel tuo file PDF.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Ogni scansione viene generata direttamente in formato PDF ad alta definizione. Con l'esclusiva **Lente d'Ingrandimento OCR** selezioni e copi il testo da immagini e scansioni per ascoltarlo ad alta voce con il lettore vocale (TTS).</div>
+                <div class="pdf-guarantee">📄 **Sicurezza PDF:** Ogni scansione viene generata direttamente in formato PDF ad alta definizione. Puoi riordinare le pagine e salvarle in una bozza modificabile in qualsiasi momento.</div>
                 
                 <!-- SMARTPHONE VIDEO SCANNER -->
                 <div class="smartphone-mockup">
@@ -384,10 +417,6 @@
                             allowfullscreen>
                         </iframe>
                     </div>
-                </div>
-
-                <div class="screenshot-grid" style="grid-template-columns: 1fr; max-width: 300px; margin: 0 auto;">
-                    <img src="ocr_estrai_testo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Estrai+Testo+OCR'" alt="Screenshot Estrai Testo OCR">
                 </div>
             </div>
 
@@ -413,25 +442,6 @@
                 <div class="screenshot-grid">
                     <img src="foto_stella.png" onerror="this.src='https://via.placeholder.com/300x600?text=Esempio+Foto+a+Stella'" alt="Screenshot Foto Stella">
                     <img src="foto_paesaggio.png" onerror="this.src='https://via.placeholder.com/300x600?text=Esempio+Foto+Paesaggio'" alt="Screenshot Foto Paesaggio">
-                </div>
-            </div>
-
-            <!-- BIANCHETTO DIGITALE & TOOLBAR SCRITTURA -->
-            <div class="feature-block">
-                <h3>✍️ Editing Testo, "Bianchetto" e Toolbar Scrittura</h3>
-                <p>Modifica e allinea i testi con precisione millimetrica. Se devi correggere un documento scansionato, la funzione intelligente di Sostituzione analizza il colore del foglio cartaceo di sfondo, crea una maschera coprente invisibile (bianchetto) e ti permette di scrivere sopra il nuovo testo con lo stesso allineamento.</p>
-                
-                <!-- TOOLBAR SCRITTURA DETAILS -->
-                <div class="pdf-guarantee">
-                    <strong>🖋️ Come funziona la Toolbar di Scrittura:</strong><br>
-                    • **Barra Strumenti Superiore:** Scegli la famiglia del font (es. Sans Serif), imposta la dimensione del carattere (es. 22pt), gestisci colori, stili e allineamento.<br>
-                    • **Scelta del Foglio:** Scegli il tipo di foglio ideale per i tuoi appunti: Bianco, A Righe, A Quadretti o Foglio Disegno.<br>
-                    • **Salvataggio & Sicurezza:** Clicca su **FINE SCRIVI** per confermare e usa l'icona del **Lucchetto** per bloccare lo scorrimento degli elementi e proteggere il testo da spostamenti accidentali.
-                </div>
-
-                <div class="screenshot-grid">
-                    <img src="scrittura_testo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Toolbar+Scrittura+Righe'" alt="Screenshot Scrittura Testo">
-                    <img src="nuovo_documento.png" onerror="this.src='https://via.placeholder.com/300x600?text=Wizard+Nuovo+Documento'" alt="Screenshot Nuovo Documento">
                 </div>
             </div>
 
@@ -546,11 +556,24 @@
     <footer>
         <p>&copy; 2026 PdfForAll. Soluzioni sicure e flessibili per l'organizzazione personale, lo studio e il lavoro professionale in formato standard PDF.</p>
         
-        <!-- CONTATORE VISITE INCORPORATO -->
+        <!-- CONTATORE VISITE SICURO JAVASCRIPT (Senza immagini esterne rotte) -->
         <div class="counter-wrapper">
-            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fczmiei.github.io%2FPdfForAll06%2F&count_bg=%23e11d48&title_bg=%230f172a&icon=&icon_color=%23e7e7e7&title=Visite&edge_flat=false" alt="Contatore Visite"/>
+            <span>👁️ Visite al cantiere:</span>
+            <span id="visit-count">...</span>
         </div>
     </footer>
+
+    <!-- Script ultra-leggero per aggiornare le visite in modo sicuro -->
+    <script>
+        fetch('https://api.counterapi.dev/v1/czmiei/pdfforall/up')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visit-count').innerText = data.value;
+            })
+            .catch(() => {
+                document.getElementById('visit-count').innerText = "Attivo"; 
+            });
+    </script>
 
 </body>
 </html>
