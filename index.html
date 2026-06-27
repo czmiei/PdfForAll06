@@ -101,7 +101,7 @@
             border: 1px solid #bbf7d0;
         }
 
-        /* Pulsanti di Download Strutturati */
+        /* Pulsanti di Download Strutturati con Badge SVG */
         .download-container {
             display: flex;
             justify-content: center;
@@ -113,17 +113,17 @@
         .download-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             background-color: var(--dark-color);
             color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 12px;
             font-weight: 700;
             transition: transform 0.2s ease, background-color 0.2s ease;
             border: 2px solid rgba(255, 255, 255, 0.1);
             text-align: left;
-            min-width: 220px;
+            min-width: 230px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
@@ -142,14 +142,14 @@
         }
 
         .download-btn.windows {
-            background-color: #64748b;
+            background-color: #1e293b;
             border-color: #475569;
             opacity: 0.75;
             cursor: not-allowed;
         }
 
-        .download-btn .btn-icon {
-            font-size: 2em;
+        .download-btn svg {
+            flex-shrink: 0;
         }
 
         .download-btn .btn-subtitle {
@@ -402,20 +402,27 @@
             <span class="badge-secure">🔒 Standard PDF Sicuro & Compatibile al 100%</span>
             <h1>PdfForAll: Il tuo ufficio in tasca.</h1>
             <p class="subtitle">
-                PdfForAll non è la solita applicazione di sola lettura o editing parziale. È una suite avanzatissima che supporta nativamente **tutte le annotazioni standard del formato PDF** (disegni a mano libera, note, evidenziazioni e forme geometriche) e, per la prima volta su smartphone, introduce funzionalità rivoluzionarie come l'inserimento di **Album Fotografici raddrizzati prospetticamente** e **Video MP4 Interattivi** perfettamente fusi nel foglio. Sicurezza totale dello standard, compatibilità universale su ogni dispositivo.
+                PdfForAll non è la solita applicazione di sola lettura o editing parziale. È una suite avanzatissima che supporta nativamente **tutte le annotazioni standard del formato PDF** (disegni a mano libera, note, moduli ed evidenziazioni). Introduce funzionalità uniche come l'importazione e la **conversione universale offline** di fogli di testo, Word ed Excel in PDF, la compilazione avanzata di moduli e tabelle, e l'inserimento di **Album Fotografici raddrizzati prospetticamente** e **Video MP4 Interattivi** perfettamente fusi nel foglio.
             </p>
 
-            <!-- PULSANTI DOWNLOAD INIZIALI (AGGIORNATI COL VERDE PLAY STORE E LINK REALE) -->
+            <!-- PULSANTI DOWNLOAD CON BADGE VETTORIALI SVG UFFICIALI (ANDROIDE E WINDOWS) -->
             <div class="download-container">
+                <!-- BADGE GOOGLE PLAY STORE -->
                 <a href="https://play.google.com/store/apps/details?id=com.sergio73.pdfforall" target="_blank" class="download-btn android">
-                    <span class="btn-icon">▶️</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 7 0 13-3 18-7l228-228L47 0zm421 218l-60-34-62 62 62 62 60-34c14-8 14-23 0-32zM385.4 337.8L104.6 499l220.7-220.7 60.1 59.5z" fill="#fff"/>
+                    </svg>
                     <div>
                         <span class="btn-subtitle">Disponibile ora per</span>
                         <span class="btn-title">Android (Play Store)</span>
                     </div>
                 </a>
+                
+                <!-- BADGE WINDOWS STORE -->
                 <div class="download-btn windows disabled">
-                    <span class="btn-icon">🪟</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                        <path d="M0 256l224-31v224H0V256zm256-35.4L512 192v288H256V220.6zM0 48h224v177L0 194V48zm256-11.8L512 0v160H256V36.2z" fill="#fff"/>
+                    </svg>
                     <div>
                         <span class="btn-subtitle">Prossimamente per</span>
                         <span class="btn-title">Windows PC</span>
@@ -438,12 +445,25 @@
         <!-- SEZIONE 2: LE FUNZIONI CHIAVE -->
         <section class="feature-section">
             <h2>🛠️ Strumenti Rivoluzionari</h2>
+
+            <!-- NOVITÀ: CONVERTITORE UNIVERSALE (TXT, WORD, EXCEL IN PDF) -->
+            <div class="feature-block" style="border-left: 4px solid var(--primary-color);">
+                <h3>🔄 Convertitore Universale (Leggi e Converti Word, Excel, TXT)</h3>
+                <p>Non hai un file PDF di partenza? Da oggi puoi leggere qualsiasi formato da ufficio direttamente in tasca. Grazie al **convertitore universale offline integrato**, puoi importare e convertire all'istante file di testo semplice (.txt), documenti Word (.doc, .docx) e fogli di calcolo Excel (.xls, .xlsx) in pulitissimi fogli PDF A4 standard. Tutto il processo avviene sul tuo dispositivo in modo privato, sicuro e senza bisogno di connessione internet.</p>
+                <div class="pdf-guarantee">📄 **Sicurezza PDF:** I file convertiti sono immediatamente pronti per essere compilati, firmati, protetti o annotati direttamente all'interno dell'applicazione.</div>
+            </div>
+
+            <!-- NOVITÀ: COMPILAZIONE MODULI ED EDITING MANUALE -->
+            <div class="feature-block" style="border-left: 4px solid var(--primary-color);">
+                <h3>📝 Compilazione Moduli Intelligente (Form Filling di Precisione)</h3>
+                <p>Compilare e completare un modulo non è mai stato così fluido e pulito. L'applicazione analizza il foglio e imposta automaticamente l'allineamento a sinistra calcolando la coordinata minima reale del margine. Se scrivi in una tabella, l'app rileva il numero di riga e inserisce dei blocchi di puntini automatici per mantenere l'allineamento. In più, riconosce se c'è uno spazio vuoto a sinistra di una riga e inserisce automaticamente la casella di spunta `[ ]` per le tue checkbox.</p>
+                <div class="pdf-guarantee">📄 **Saldatura Chirurgica (PDFBox):** Quando premi su APPLICA, il sistema cancella solo i caratteri modificati usando un micro-rettangolo bianco e vi scrive sopra con un moltiplicatore di scala a 1.55f in Courier Bold. Questo mantiene intatti al 100% i loghi, le scritte statiche e le tabelle nere del PDF originale!</div>
+            </div>
             
             <!-- VIDEO SU PDF (PUNTA DI DIAMANTE & SERVIDEOPLAYER) -->
             <div class="feature-block">
                 <h3>🎥 La Magia dei Video su PDF & Motore "SerVideoPlayer"</h3>
                 <p>Una foto statica non basta per spiegare un concetto? **Incolla un vero video sul foglio!** PdfForAll ti permette di incorporare filmati MP4 interattivi direttamente sulle pagine del documento. Grazie all'esclusivo motore integrato **SerVideoPlayer**, la riproduzione è fluida, vettoriale e nativa: puoi controllare la traccia, ridimensionare, ruotare e persino modificare la velocità di riproduzione del filmato direttamente sul PDF.</p>
-                <div class="pdf-guarantee">📄 **Sicurezza PDF:** I video vengono integrati sfruttando una struttura dati cifrata all'interno dello standard PDF, mantenendo il file protetto da alterazioni e perfettamente stabile.</div>
                 
                 <!-- LEGENDA VIDEO TENTACOLI -->
                 <div class="tentacles-legend">
@@ -527,14 +547,14 @@
                 </div>
             </div>
 
-            <!-- DISEGNO CAD -->
+            <!-- DISEGNO CAD, FIRME E SIMBOLI EMOJI -->
             <div class="feature-block">
-                <h3>📐 Disegno Vettoriale CAD e Firme Protette</h3>
-                <p>Traccia linee, forme geometriche, cerchi e rettangoli con il modellatore vettoriale a nodi. Applica la tua firma formale o commerciale: l'app crea uno speciale "Scudo di Protezione" che blocca l'immagine della firma, rendendola impossibile da modificare, deformare o rimuovere per errore dal foglio.</p>
+                <h3>📐 Disegno CAD, Firme Protette ed Emoji a 360°</h3>
+                <p>Traccia linee, forme geometriche, cerchi e rettangoli con il modellatore vettoriale a nodi. Applica la tua firma formale o commerciale: l'app crea uno speciale "Scudo di Protezione" che blocca l'immagine della firma mantenendola perfettamente orizzontale e solida. In più, abbiamo inserito il supporto ai **Timbri Emoji**! A differenza delle firme, le emoji possono essere ruotate a 360 gradi e ridimensionate usando un comodo tentacolo azzurro per dare sfogo alla tua creatività.</p>
                 
                 <div class="pdf-guarantee">
-                    <strong>🎨 La Toolbar di Disegno:</strong><br>
-                    Scegli tra Mano Libera (Levigata), Linea Dritta, Rettangolo o Cerchio/Ovale. Regola lo spessore del tratto e cambia il colore di riempimento e bordo in tempo reale.
+                    <strong>🎨 La Toolbar di Disegno & Timbri:</strong><br>
+                    Scegli tra Mano Libera, Linea Dritta, Rettangolo, Cerchio o il pannello dei Timbri Simbolo. Regola lo spessore, i colori e i riempimenti grafici in tempo reale.
                 </div>
 
                 <div class="screenshot-grid">
@@ -639,15 +659,22 @@
             <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 30px auto;">Scarica l'applicazione oggi stesso ed entra nel primo vero cantiere digitale per gestire al meglio studio, lavoro e tempo libero.</p>
             
             <div class="download-container" style="margin: 0;">
+                <!-- BADGE GOOGLE PLAY STORE -->
                 <a href="https://play.google.com/store/apps/details?id=com.sergio73.pdfforall" target="_blank" class="download-btn android">
-                    <span class="btn-icon">▶️</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 7 0 13-3 18-7l228-228L47 0zm421 218l-60-34-62 62 62 62 60-34c14-8 14-23 0-32zM385.4 337.8L104.6 499l220.7-220.7 60.1 59.5z" fill="#fff"/>
+                    </svg>
                     <div>
                         <span class="btn-subtitle">Disponibile ora per</span>
                         <span class="btn-title">Android (Play Store)</span>
                     </div>
                 </a>
+                
+                <!-- BADGE WINDOWS STORE -->
                 <div class="download-btn windows disabled" style="background-color: #475569;">
-                    <span class="btn-icon">🪟</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                        <path d="M0 256l224-31v224H0V256zm256-35.4L512 192v288H256V220.6zM0 48h224v177L0 194V48zm256-11.8L512 0v160H256V36.2z" fill="#fff"/>
+                    </svg>
                     <div>
                         <span class="btn-subtitle">Prossimamente per</span>
                         <span class="btn-title">Windows PC</span>
