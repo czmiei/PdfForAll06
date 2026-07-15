@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PdfForAll - Your office in your pocket</title>
+    <style>
+        :root {
+            --primary-color: #e11d48; /* Rosso brand */
+            --google-play-green: #01875f; /* Il classico verde ufficiale Google Play */
+            --blue-accent: #0288d1;   /* Azzurro dettagli */
+            --dark-color: #0f172a;
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-title {
+            margin: 0;
+            font-size: 1.5em;
+            color: var(--dark-color);
+            font-weight: 800;
+        }
+
+        .lang-switcher {
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+
+        .lang-switcher a {
+            text-decoration: none;
+            color: #64748b;
+            padding: 4px 8px;
+            transition: color 0.2s ease;
+        }
+
+        .lang-switcher a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .lang-switcher a:hover:not(.active) {
+            color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px 20px 20px;
+        }
+
+        .hero h1 {
+            color: var(--primary-color); /* TITOLO IN ROSSO */
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25em;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            font-weight: 500;
+            text-align: justify;
+        }
+
+        .badge-secure {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #15803d;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            border: 1px solid #bbf7d0;
+        }
+
+        /* Pulsanti di Download Strutturati con Badge SVG */
+        .download-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--dark-color);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            min-width: 230px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .download-btn:hover:not(.disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .download-btn.android {
+            background-color: var(--google-play-green); /* VERDE GOOGLE PLAY */
+            border-color: var(--google-play-green);
+        }
+
+        .download-btn.android:hover {
+            background-color: #016f4e; /* Verde leggermente più scuro per l'effetto hover */
+        }
+
+        .download-btn.windows {
+            background-color: #1e293b;
+            border-color: #475569;
+            opacity: 0.75;
+            cursor: not-allowed;
+        }
+
+        .download-btn svg {
+            flex-shrink: 0;
+        }
+
+        .download-btn .btn-subtitle {
+            font-size: 0.75em;
+            font-weight: 400;
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .download-btn .btn-title {
+            font-size: 1.05em;
+            display: block;
+        }
+
+        /* Classe Smartphone virtuale */
+        .smartphone-mockup {
+            max-width: 290px;
+            margin: 30px auto;
+        }
+
+        .smartphone-screen {
+            position: relative;
+            padding-bottom: 220%; /* Formato allungato moderno */
+            height: 0;
+            overflow: hidden;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 6px solid #1e293b;
+            background-color: #000;
+        }
+
+        .smartphone-screen iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .feature-section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-section h2 {
+            color: var(--dark-color);
+            font-size: 2.2em;
+            margin-top: 0;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 15px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .feature-block {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-block h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.45em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-block p {
+            font-size: 1.05em;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        .pdf-guarantee {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--blue-accent);
+            padding: 10px 15px;
+            font-size: 0.95em;
+            color: #1e3a8a;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .tentacles-legend {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin: 20px 0;
+        }
+
+        .tentacles-legend h4 {
+            margin: 0 0 10px 0;
+            color: var(--dark-color);
+            font-size: 1.1em;
+        }
+
+        .tentacles-legend ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tentacles-legend li {
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+            border: 1px solid rgba(0,0,0,0.15);
+        }
+        .dot.yellow { background-color: #facc15; }
+        .dot.red { background-color: #ef4444; }
+        .dot.green { background-color: #22c55e; }
+        .dot.blue { background-color: #3b82f6; }
+        .dot.cyan { background-color: #06b6d4; }
+        .dot.black { background-color: #000000; }
+        .dot.white { background-color: #ffffff; border: 1px solid #cbd5e1; }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .screenshot-grid img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border: 2px solid #cbd5e1;
+            transition: transform 0.2s ease;
+        }
+
+        .screenshot-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        .gestures-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gesture-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px dashed #cbd5e1;
+            text-align: center;
+        }
+
+        .gesture-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .languages-box {
+            text-align: center;
+            background: var(--dark-color);
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+
+        .languages-box h2 {
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .lang-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Stile contatore visite testuale sicuro */
+        .counter-wrapper {
+            margin-top: 20px;
+            font-size: 1em;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255,255,255,0.05);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-flex;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.9em;
+            border-top: 1px solid #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="logo-title">PdfForAll</span>
+        <div class="lang-switcher">
+            <a href="index.html">IT</a> | 
+            <a href="index_en.html" class="active">EN</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- SEZIONE 1: HOMEPAGE (INTRODUZIONE ESTESA) -->
+        <section class="hero">
+            <span class="badge-secure">🔒 Secure & 100% Compatible PDF Standard</span>
+            <h1>PdfForAll: Your office in your pocket.</h1>
+            <p class="subtitle">
+                PdfForAll is not your average read-only or partial editing app. It is a highly advanced suite that natively supports **all standard PDF annotations** (freehand drawings, notes, forms, and highlights). It introduces unique features like importing and **converting text, Word, and Excel files to PDF offline**, advanced form and table filling, and incorporating **perspectively flattened Photo Albums** and **Interactive MP4 Videos** perfectly fused onto the page.
+            </p>
+
+            <!-- PULSANTI DOWNLOAD CON BADGE VETTORIALI SVG UFFICIALI (ANDROIDE E WINDOWS) -->
+            <div class="download-container">
+                <!-- BADGE GOOGLE PLAY STORE -->
+                <a href="https://play.google.com/store/apps/details?id=com.sergio73.pdfforall" target="_blank" class="download-btn android">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 7 0 13-3 18-7l228-228L47 0zm421 218l-60-34-62 62 62 62 60-34c14-8 14-23 0-32zM385.4 337.8L104.6 499l220.7-220.7 60.1 59.5z" fill="#fff"/>
+                    </svg>
+                    <div>
+                        <span class="btn-subtitle">Available now for</span>
+                        <span class="btn-title">Android (Play Store)</span>
+                    </div>
+                </a>
+                
+                <!-- BADGE WINDOWS STORE -->
+                <div class="download-btn windows disabled">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                        <path d="M0 256l224-31v224H0V256zm256-35.4L512 192v288H256V220.6zM0 48h224v177L0 194V48zm256-11.8L512 0v160H256V36.2z" fill="#fff"/>
+                    </svg>
+                    <div>
+                        <span class="btn-subtitle">Coming soon for</span>
+                        <span class="btn-title">Windows PC</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Principale di Presentazione -->
+        <div class="smartphone-mockup">
+            <div class="smartphone-screen">
+                <iframe 
+                    src="https://www.youtube.com/embed/fb3d8sxlC_g" 
+                    title="PdfForAll Presentation" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- SEZIONE 2: LE FUNZIONI CHIAVE -->
+        <section class="feature-section">
+            <h2>🛠️ Revolutionary Tools</h2>
+
+            <!-- NOVITÀ: CONVERTITORE UNIVERSALE (TXT, WORD, EXCEL IN PDF) -->
+            <div class="feature-block" style="border-left: 4px solid var(--primary-color);">
+                <h3>🔄 Universal Converter (Read and Convert Word, Excel, TXT)</h3>
+                <p>Don't have a starting PDF file? From today, you can read any office format directly in your pocket. Thanks to the **built-in offline universal converter**, you can instantly import and convert plain text (.txt), Word (.doc, .docx), and Excel (.xls, .xlsx) files into clean, standard A4 PDF pages. The entire process happens offline on your device, ensuring privacy and security without needing an internet connection.</p>
+                <div class="pdf-guarantee">📄 **PDF Security:** Converted files are immediately ready to be filled, signed, secured, or annotated directly inside the application.</div>
+            </div>
+
+            <!-- NOVITÀ: COMPILAZIONE MODULI ED EDITING MANUALE -->
+            <div class="feature-block" style="border-left: 4px solid var(--primary-color);">
+                <h3>📝 Smart Form Filling (Precision Form Filling)</h3>
+                <p>Filling and completing a form has never been so smooth and clean. The app analyzes the page and automatically sets left-alignment by calculating the actual minimum margin. If you write in a table, the app detects the row number and inserts automatic dot paddings to maintain alignment. Furthermore, it recognizes if there is a blank space on the left of a line and automatically injects a [ ] checkbox.</p>
+                <div class="pdf-guarantee">📄 **Surgical Saving (PDFBox):** When you click APPLY, the system only erases modified characters using a micro white rectangle and writes over them with a 1.55f scale in Courier Bold. This keeps original background grids, black tables, and logos 100% intact!</div>
+            </div>
+            
+            <!-- VIDEO SU PDF (PUNTA DI DIAMANTE & SERVIDEOPLAYER) -->
+            <div class="feature-block">
+                <h3>🎥 The Magic of Videos on PDF & "SerVideoPlayer" Engine</h3>
+                <p>A static photo is not enough to explain a concept? **Paste a real video onto the page!** PdfForAll lets you embed interactive MP4 videos directly onto the pages of your document. Thanks to the exclusive built-in **SerVideoPlayer** engine, playback is smooth, vector, and native: you can control the track, resize, rotate, and even change the playback speed of the video directly on the PDF.</p>
+                
+                <!-- LEGENDA VIDEO TENTACOLI -->
+                <div class="tentacles-legend">
+                    <h4>🕹️ The "VideoTentacles" Controls:</h4>
+                    <ul>
+                        <li><span class="dot black"></span> <strong>Black Dot:</strong> Single click to show/hide the player remote control; double click to hide it.</li>
+                        <li><span class="dot yellow"></span> <strong>Yellow Dot:</strong> Instantly changes the crop mask of the video shape.</li>
+                        <li><span class="dot cyan"></span> <strong>Cyan Dot:</strong> Resize and rotate the video with total freedom on the page.</li>
+                        <li><span class="dot white"></span> <strong>White Dots:</strong> Modeling and perspective deformation tools for the video.</li>
+                        <li>🪣 <strong>Paint Bucket (Toolbar):</strong> Quick click to open the horizontal toolbar; long press to open the Android Palette to change the frame color.</li>
+                        <li>📏 <strong>Thickness:</strong> The slider adjusts the final border thickness of the video.</li>
+                    </ul>
+                </div>
+
+                <div class="screenshot-grid">
+                    <img src="video_ovale.png" onerror="this.src='https://via.placeholder.com/300x600?text=Video+Ovale+Inclinato'" alt="Screenshot Video Ovale">
+                    <img src="video_rettangolo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Video+Rettangolare'" alt="Screenshot Video Rettangolare">
+                </div>
+            </div>
+
+            <!-- BIANCHETTO DIGITALE, SCRITTURA & ESTRAZIONE OCR -->
+            <div class="feature-block">
+                <h3>✍️ Text Editing, "Whiteout" & OCR Text Extraction</h3>
+                <p>Edit, correct, and insert text with millimeter precision. If you need to correct a scanned document, the Sostituzione (Replacement) feature analyzes the paper color, creates an invisible "virtual whiteout" mask, and lets you write over it. With the exclusive **OCR Extraction feature**, the app analyzes the image and lets you select the scanned text to copy to your clipboard, share, or read aloud.</p>
+                
+                <!-- TOOLBAR SCRITTURA DETAILS -->
+                <div class="pdf-guarantee">
+                    <strong>🖋️ How the Writing Toolbar Works:</strong><br>
+                    • **Upper Editing Bar:** Choose font family (e.g. Sans Serif), set font size (e.g. 22pt), manage colors, styles, and alignment.<br>
+                    • **Page Choice:** Choose the ideal paper type for your notes: Blank, Lined, Squared, or Drawing sheet.<br>
+                    • **Save & Security:** Click DONE WRITING to confirm and use the Lock icon to freeze elements and protect text from accidental movement.<br>
+                </div>
+
+                <div class="screenshot-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                    <img src="scrittura_testo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Toolbar+Scrittura+Righe'" alt="Screenshot Scrittura Text">
+                    <img src="nuovo_documento.png" onerror="this.src='https://via.placeholder.com/300x600?text=Wizard+Nuovo+Documento'" alt="Screenshot Nuovo Documento">
+                    <img src="ocr_estrai_testo.png" onerror="this.src='https://via.placeholder.com/300x600?text=Estrai+Testo+OCR'" alt="Screenshot Estrai Testo OCR">
+                </div>
+            </div>
+
+            <!-- SCANNER AVANZATO -->
+            <div class="feature-block">
+                <h3>🔍 The Smart Scanner (Multi-Page Scan)</h3>
+                <p>Acquire any text or paper document with your camera. Thanks to Google ML Kit AI algorithms, the app removes shadows, straightens folds, and cleans the background. It supports **Multi-Page Scanning** of multiple pages at once and lets you **attach them to existing pages** in your PDF file.</p>
+                <div class="pdf-guarantee">📄 **PDF Security:** Every scan is generated directly in high-definition PDF format. You can reorder pages and save them as an editable draft at any time.</div>
+                
+                <!-- SMARTPHONE VIDEO SCANNER -->
+                <div class="smartphone-mockup">
+                    <div class="smartphone-screen">
+                        <iframe 
+                            src="https://www.youtube.com/embed/vBtMCwPNx1c" 
+                            title="PdfForAll Scanner Demo" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOTOGRAFIA PROSPETTICA -->
+            <div class="feature-block">
+                <h3>📸 Perspective Photography & Secure Albums</h3>
+                <p>Create professional photo albums on your document. Take a photo from any angle and use the Perspective Cropper to straighten it on the page optimally. Rotate images using the Magnetic Rotation Tentacle with snap-to-angle at 0/90/180 degrees, or crop them into geometric or creative shapes.</p>
+                <div class="pdf-guarantee">📄 **PDF Security:** Images are embedded directly into the body of the PDF as protected data, preventing them from moving or detaching when the file is opened on other devices.</div>
+                
+                <!-- LEGENDA FOTO TENTACOLI -->
+                <div class="tentacles-legend">
+                    <h4>🕹️ The "PhotoTentacles" Controls:</h4>
+                    <ul>
+                        <li><span class="dot yellow"></span> <strong>Yellow Dot:</strong> Each click changes the border/frame style of the photo.</li>
+                        <li><span class="dot red"></span> <strong>Red Dot:</strong> Activates the perspective cropping of the image.</li>
+                        <li><span class="dot green"></span> <strong>Green Dot:</strong> Applies real-time graphic filters (Black & White, Sepia, etc.).</li>
+                        <li><span class="dot blue"></span> <strong>Blue Dot:</strong> Rotates and resizes the image with magnetic guides.</li>
+                        <li><span class="dot white"></span> <strong>White Dots:</strong> Allow perspective modeling and deformation of the photo.</li>
+                        <li>🎨 <strong>Thickness & Palette:</strong> Adjust border thickness with the slider and choose the perfect color using the built-in palette.</li>
+                    </ul>
+                </div>
+
+                <div class="screenshot-grid">
+                    <img src="foto_stella.png" onerror="this.src='https://via.placeholder.com/300x600?text=Esempio+Foto+a+Stella'" alt="Screenshot Foto Stella">
+                    <img src="foto_paesaggio.png" onerror="this.src='https://via.placeholder.com/300x600?text=Esempio+Foto+Paesaggio'" alt="Screenshot Foto Paesaggio">
+                </div>
+            </div>
+
+            <!-- DISEGNO CAD, FIRME E SIMBOLI EMOJI -->
+            <div class="feature-block">
+                <h3>📐 CAD Vector Drawing, Protected Signatures & Emojis</h3>
+                <p>Draw lines, geometric shapes, circles, and rectangles with the vector node modeler. Apply your formal or commercial signature: the app creates a special "Protection Shield" that locks the signature image, making it impossible to edit, deform, or accidentally remove from the page. We also added a dedicated **Emoji Stamp panel**! All placed emoji stamps retain a cyan 360-degree magnetic rotation handle, letting you decorate and annotate your pages with complete expressive freedom, while actual signatures remain solid and horizontal.</p>
+                
+                <div class="pdf-guarantee">
+                    <strong>🎨 The Drawing & Stamp Toolbar:</strong><br>
+                    Choose among Freehand, Straight Line, Rectangle, Circle, or the Symbol Stamps panel. Adjust thickness, colors, and fills in real-time.
+                </div>
+
+                <div class="screenshot-grid">
+                    <img src="disegno_vettoriale.png" onerror="this.src='https://via.placeholder.com/300x600?text=Disegno+Vettoriale+CAD'" alt="Screenshot Disegno Vettoriale">
+                    <img src="strumenti_disegno.png" onerror="this.src='https://via.placeholder.com/300x600?text=Menu+Strumenti+Disegno'" alt="Screenshot Strumenti Disegno">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SEZIONE 3: ARCHIVIO E BACKUP -->
+        <section class="feature-section">
+            <h2>🗂️ Folder-Structured Archive</h2>
+            
+            <div class="feature-block">
+                <h3>📁 Client Archive & Mini-CRM</h3>
+                <p>Organize your clients' documents neatly in dedicated physical folders on your device. The app recognizes which folder the document belongs to and organizes it automatically, allowing you to split work, study, or personal files for quick access.</p>
+                <div class="pdf-guarantee">📄 **PDF Security:** Every document resides in the protected memory of the application in native PDF format, ready to be secured or archived.</div>
+            </div>
+
+            <div class="feature-block">
+                <h3>🍊 Save as Draft or Sealed Archive</h3>
+                <p>Manage the file status. Save as **Draft** (with an elegant orange warning border on the folder) to be able to reopen the PDF and edit all embedded videos, images, and shapes again. Save as **Sealed Archive** to flatten and permanently lock all elements into an unmodifiable, protected PDF file, ready to be sent.</p>
+                
+                <!-- SMARTPHONE VIDEO ARCHIVIO -->
+                <div class="smartphone-mockup">
+                    <div class="smartphone-screen">
+                        <iframe 
+                            src="https://www.youtube.com/embed/FRAInieVwxk" 
+                            title="PdfForAll Archivio Demo" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <h3>📦 Secure Backup in .ZIP Format</h3>
+                <p>Export entire groups of folders into a single compressed (.ZIP) file to transfer your data to a new phone or send them to colleagues and collaborators. When extracting the archive, newly imported folders will glow in cyan to immediately alert you to new ready elements.</p>
+                
+                <!-- SMARTPHONE VIDEO BACKUP -->
+                <div class="smartphone-mockup">
+                    <div class="smartphone-screen">
+                        <iframe 
+                            src="https://www.youtube.com/embed/yRAaTlD4cQk" 
+                            title="PdfForAll Backup Demo" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 4: GUIDA RAPIDA - I GESTI MAGICI -->
+        <section class="feature-section">
+            <h2>📖 The Magical Interface Gestures</h2>
+            <p>PdfForAll eliminates endless toolbars and packs all its power into 3 natural gestures:</p>
+            
+            <div class="gestures-list">
+                <div class="gesture-item">
+                    <span class="gesture-icon">👆</span>
+                    <strong>Single Tap</strong>
+                    <p>Activates a tool, inserts a text line, applies a signature on the page, or plays/pauses videos.</p>
+                </div>
+                <div class="gesture-item">
+                    <span class="gesture-icon">✌️</span>
+                    <strong>Double Tap</strong>
+                    <p>Enters editing mode on photos/videos, reopens the keyboard to correct text, or activates quick zoom in empty space.</p>
+                </div>
+                <div class="gesture-item">
+                    <span class="gesture-icon">⏱️</span>
+                    <strong>Long Press</strong>
+                    <p>Opens advanced tool settings, activates the background RGB palette, or starts multiple file selection.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 5: MULTILINGUA -->
+        <section class="languages-box">
+            <h2>🌍 Native Support in 13 Languages</h2>
+            <p>PdfForAll breaks down every communication barrier. The interface instantly adapts to your device's language or can be changed manually among 13 options:</p>
+            <div class="languages-list">
+                <span class="lang-tag">Italiano</span>
+                <span class="lang-tag">English</span>
+                <span class="lang-tag">Español</span>
+                <span class="lang-tag">Français</span>
+                <span class="lang-tag">Deutsch</span>
+                <span class="lang-tag">Português</span>
+                <span class="lang-tag">Shqip (Albanian)</span>
+                <span class="lang-tag">العربية (Arabic)</span>
+                <span class="lang-tag">हिन्दी (Hindi)</span>
+                <span class="lang-tag">日本語 (Japanese)</span>
+                <span class="lang-tag">Русский (Russian)</span>
+                <span class="lang-tag">中文 (Chinese)</span>
+                <span class="lang-tag">한국어 (Korean)</span>
+            </div>
+        </section>
+
+        <!-- SEZIONE 6: BOX DI INVITO AL DOWNLOAD FINALE (CALL TO ACTION) -->
+        <section class="feature-section" style="text-align: center; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #fff; border: none; margin-top: 40px;">
+            <h2 style="color: #fff; border: none; margin-bottom: 10px;">Ready to unlock the power of your PDFs?</h2>
+            <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 30px auto;">Download the app today and enter the first real digital workspace to best manage your study, work, and leisure time.</p>
+            
+            <div class="download-container" style="margin: 0;">
+                <!-- BADGE GOOGLE PLAY STORE -->
+                <a href="https://play.google.com/store/apps/details?id=com.sergio73.pdfforall" target="_blank" class="download-btn android">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 7 0 13-3 18-7l228-228L47 0zm421 218l-60-34-62 62 62 62 60-34c14-8 14-23 0-32zM385.4 337.8L104.6 499l220.7-220.7 60.1 59.5z" fill="#fff"/>
+                    </svg>
+                    <div>
+                        <span class="btn-subtitle">Available now for</span>
+                        <span class="btn-title">Android (Play Store)</span>
+                    </div>
+                </a>
+                
+                <!-- BADGE WINDOWS STORE -->
+                <div class="download-btn windows disabled" style="background-color: #475569;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                        <path d="M0 256l224-31v224H0V256zm256-35.4L512 192v288H256V220.6zM0 48h224v177L0 194V48zm256-11.8L512 0v160H256V36.2z" fill="#fff"/>
+                    </svg>
+                    <div>
+                        <span class="btn-subtitle">Coming soon for</span>
+                        <span class="btn-title">Windows PC</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PdfForAll. Secure and flexible solutions for personal organization, study, and professional work in standard PDF format.</p>
+        
+        <!-- CONTATORE VISITE SICURO JAVASCRIPT -->
+        <div class="counter-wrapper">
+            <span>👁️ Visits to the site:</span>
+            <span id="visit-count">...</span>
+        </div>
+    </footer>
+
+    <!-- Script sicuro per contatore senza immagini rotte -->
+    <script>
+        fetch('https://api.counterapi.dev/v1/czmiei/pdfforall/up')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visit-count').innerText = data.value;
+            })
+            .catch(() => {
+                document.getElementById('visit-count').innerText = "Active"; 
+            });
+    </script>
+
+</body>
+</html>
