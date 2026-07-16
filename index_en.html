@@ -700,7 +700,7 @@
         fetch('https://api.counterapi.dev/v1/czmiei/pdfforall/up')
             .then(response => response.json())
             .then(data => {
-                document.getElementById('visit-count').innerText = data.value;
+               document.getElementById('visit-count').innerText = data.count;
             })
             .catch(() => {
                 document.getElementById('visit-count').innerText = "Active"; 
