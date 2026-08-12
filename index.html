@@ -696,11 +696,14 @@
     </footer>
 
     <!-- Script sicuro per contatore senza immagini rotte -->
+   <!-- Script sicuro per contatore senza immagini rotte -->
     <script>
         fetch('https://api.counterapi.dev/v1/czmiei/pdfforall/up')
             .then(response => response.json())
             .then(data => {
-               document.getElementById('visit-count').innerText = data.count;
+               // 🟢 SALDATURA DI SICUREZZA: Legge sia 'count' che 'value' per evitare qualsiasi errore dei server!
+               var visite = data.count || data.value || "1";
+               document.getElementById('visit-count').innerText = visite;
             })
             .catch(() => {
                 document.getElementById('visit-count').innerText = "Attivo"; 
