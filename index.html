@@ -695,21 +695,27 @@
         </div>
     </footer>
 
-   <!-- Script sicuro per contatore senza immagini rotte -->
+  <!-- Script sicuro per contatore senza immagini rotte -->
     <script>
-        fetch('https://api.counterapi.dev/v1/czmiei/pdfforall/up')
-            .then(response => response.json())
-            .then(data => {
-               // 🟢 SONDA DI DEBUG: Stampa la risposta reale del server nella console del browser!
-               console.log("Dati ricevuti dal contatore:", data);
-               
-               var visite = data.count || data.value || "1";
-               document.getElementById('visit-count').innerText = visite;
-            })
-            .catch((error) => {
-                console.log("Errore di connessione al contatore:", error);
-                document.getElementById('visit-count').innerText = "Attivo"; 
-            });
+        // 🟢 Chiave API V2 ufficiale configurata per czmiei/pdfforall
+        const API_KEY = "Bearer ut_vTd37cPd3jSiICgkv8RHwv8gqDVFcTEGoSgHZyIu"; 
+
+        fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up', {
+            method: 'GET',
+            headers: {
+                'Authorization': API_KEY
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Nella versione v2 il server restituisce il conteggio sotto la chiave "value" o "count"
+            var visite = data.value || data.count || "1";
+            document.getElementById('visit-count').innerText = visite;
+        })
+        .catch((error) => {
+            console.log("Errore di connessione al contatore v2:", error);
+            document.getElementById('visit-count').innerText = "Attivo"; 
+        });
     </script>
 
 </body>
