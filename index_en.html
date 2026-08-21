@@ -688,35 +688,27 @@
     <footer>
         <p>&copy; 2026 PdfForAll. Secure and flexible solutions for personal organization, study, and professional work in standard PDF format.</p>
         
-        <!-- CONTATORE VISITE SICURO JAVASCRIPT -->
-        <div class="counter-wrapper">
-            <span>👁️ Visits to the site:</span>
-            <span id="visit-count">...</span>
-        </div>
-    </footer>
-
-<!-- Script sicuro per contatore senza immagini rotte -->
+     <!-- Script sicuro per contatore senza immagini rotte -->
 <script>
     function updateCounter(value) {
         document.getElementById('visit-count').innerText = value;
     }
 
-    // Prova prima l'API remota
-    fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
+    // Usiamo l'API di CodeTabs: gratuita, senza chiavi e con CORS sbloccato nativamente!
+    fetch('https://api.codetabs.com/v1/counter?key=czmiei-pdfforall&value=up')
         .then(response => {
             if (!response.ok) throw new Error('API error');
             return response.json();
         })
         .then(data => {
-            // Adatta il campo in base alla risposta
+            // CodeTabs restituisce il valore nel campo "count" o "value"
             let count = data.count || data.value || 1;
             updateCounter(count);
-            // Salva localmente per eventuali fallback
             localStorage.setItem('visitCount', count);
         })
         .catch(() => {
-            // Se l'API fallisce, usa il valore salvato in localStorage o incrementa manualmente
-            let localCount = parseInt(localStorage.getItem('visitCount') || '0');
+            // Se l'API fallisce, usa il valore in localStorage partendo dallo storico di 169!
+            let localCount = parseInt(localStorage.getItem('visitCount') || '169');
             localCount++;
             localStorage.setItem('visitCount', localCount);
             updateCounter(localCount);
