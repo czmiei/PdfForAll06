@@ -696,18 +696,31 @@
     </footer>
     
 <!-- Script sicuro per contatore senza immagini rotte -->
-    <script>
-        fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
-        .then(response => response.json())
-        .then(data => {
-            // Legge il valore in tempo reale restituito dal server v2
-            var visite = data.value || data.count || "1";
-            document.getElementById('visit-count').innerText = visite;
+   <script>
+    function updateCounter(value) {
+        document.getElementById('visit-count').innerText = value;
+    }
+
+    // Prova prima l'API remota
+    fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
+        .then(response => {
+            if (!response.ok) throw new Error('API error');
+            return response.json();
         })
-        .catch((error) => {
-            console.log("Errore di connessione al contatore v2:", error);
-            document.getElementById('visit-count').innerText = "Attivo"; 
+        .then(data => {
+            // Adatta il campo in base alla risposta
+            let count = data.count || data.value || 1;
+            updateCounter(count);
+            // Salva localmente per eventuali fallback
+            localStorage.setItem('visitCount', count);
+        })
+        .catch(() => {
+            // Se l'API fallisce, usa il valore salvato in localStorage o incrementa manualmente
+            let localCount = parseInt(localStorage.getItem('visitCount') || '0');
+            localCount++;
+            localStorage.setItem('visitCount', localCount);
+            updateCounter(localCount);
         });
-    </script>
+</script>
 </body>
 </html>
