@@ -696,15 +696,30 @@
     </footer>
 
 ///Contatore////
-  <script>
-    fetch('https://api.countapi.xyz/update/czmiei/pdfforall/?amount=1')
-        .then(response => response.json())
+ <script>
+    function updateCounter(value) {
+        document.getElementById('visit-count').innerText = value;
+    }
+
+    // Prova prima l'API remota
+    fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
+        .then(response => {
+            if (!response.ok) throw new Error('API error');
+            return response.json();
+        })
         .then(data => {
-            // countapi.xyz restituisce { value: numero }
-            document.getElementById('visit-count').innerText = data.value || '1';
+            // Adatta il campo in base alla risposta
+            let count = data.count || data.value || 1;
+            updateCounter(count);
+            // Salva localmente per eventuali fallback
+            localStorage.setItem('visitCount', count);
         })
         .catch(() => {
-            document.getElementById('visit-count').innerText = '🔥';
+            // Se l'API fallisce, usa il valore salvato in localStorage o incrementa manualmente
+            let localCount = parseInt(localStorage.getItem('visitCount') || '0');
+            localCount++;
+            localStorage.setItem('visitCount', localCount);
+            updateCounter(localCount);
         });
 </script>
 
