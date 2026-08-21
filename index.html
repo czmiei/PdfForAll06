@@ -694,21 +694,19 @@
             <span id="visit-count">...</span>
         </div>
     </footer>
-
-  <!-- Script sicuro per contatore senza immagini rotte -->
-    <script>
-        fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
+    
+///Contatore////
+  <script>
+    fetch('https://api.countapi.xyz/update/czmiei/pdfforall/?amount=1')
         .then(response => response.json())
         .then(data => {
-            // Nella versione v2 il server restituisce il conteggio sotto la chiave "value" o "count"
-            var visite = data.value || data.count || "1";
-            document.getElementById('visit-count').innerText = visite;
+            // countapi.xyz restituisce { value: numero }
+            document.getElementById('visit-count').innerText = data.value || '1';
         })
-        .catch((error) => {
-            console.log("Errore di connessione al contatore v2:", error);
-            document.getElementById('visit-count').innerText = "Attivo"; 
+        .catch(() => {
+            document.getElementById('visit-count').innerText = '🔥';
         });
-    </script>
+</script>
 
 </body>
 </html>
