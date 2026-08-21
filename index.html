@@ -695,17 +695,19 @@
         </div>
     </footer>
 
-    <!-- Script sicuro per contatore senza immagini rotte -->
    <!-- Script sicuro per contatore senza immagini rotte -->
     <script>
         fetch('https://api.counterapi.dev/v1/czmiei/pdfforall/up')
             .then(response => response.json())
             .then(data => {
-               // 🟢 SALDATURA DI SICUREZZA: Legge sia 'count' che 'value' per evitare qualsiasi errore dei server!
+               // 🟢 SONDA DI DEBUG: Stampa la risposta reale del server nella console del browser!
+               console.log("Dati ricevuti dal contatore:", data);
+               
                var visite = data.count || data.value || "1";
                document.getElementById('visit-count').innerText = visite;
             })
-            .catch(() => {
+            .catch((error) => {
+                console.log("Errore di connessione al contatore:", error);
                 document.getElementById('visit-count').innerText = "Attivo"; 
             });
     </script>
