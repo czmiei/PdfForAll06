@@ -688,21 +688,21 @@
     <footer>
         <p>&copy; 2026 PdfForAll. Secure and flexible solutions for personal organization, study, and professional work in standard PDF format.</p>
         
-     <!-- Script sicuro per contatore senza immagini rotte -->
+    <!-- Script sicuro per contatore senza immagini rotte -->
 <script>
     function updateCounter(value) {
         document.getElementById('visit-count').innerText = value;
     }
 
-    // Usiamo l'API di CodeTabs: gratuita, senza chiavi e con CORS sbloccato nativamente!
-    fetch('https://api.codetabs.com/v1/counter?key=czmiei-pdfforall&value=up')
+    // Usiamo il CounterAPI V2 pubblico, pulito e senza intestazioni di sicurezza bloccanti!
+    fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
         .then(response => {
             if (!response.ok) throw new Error('API error');
             return response.json();
         })
         .then(data => {
-            // CodeTabs restituisce il valore nel campo "count" o "value"
-            let count = data.count || data.value || 1;
+            // Nella versione v2 il server restituisce il conteggio sotto la chiave "value" o "count"
+            let count = data.value || data.count || 1;
             updateCounter(count);
             localStorage.setItem('visitCount', count);
         })
@@ -714,5 +714,4 @@
             updateCounter(localCount);
         });
 </script>
-</body>
 </html>
