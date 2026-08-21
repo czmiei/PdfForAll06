@@ -697,15 +697,7 @@
 
 <!-- Script sicuro per contatore senza immagini rotte -->
     <script>
-        // 🟢 Chiave API V2 ufficiale configurata per czmiei/pdfforall
-        const API_KEY = "Bearer ut_vTd37cPd3jSiICgkv8RHwv8gqDVFcTEGoSgHZyIu"; 
-
-        fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up', {
-            method: 'GET',
-            headers: {
-                'Authorization': API_KEY
-            }
-        })
+        fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
         .then(response => response.json())
         .then(data => {
             // Nella versione v2 il server restituisce il conteggio sotto la chiave "value" o "count"
