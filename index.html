@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PdfForAll - Il tuo ufficio in tasca</title>
     <style>
+        /* 🎨 1. VARIABILI DI COLORE DEL BRAND */
         :root {
             --primary-color: #e11d48; /* Rosso brand */
             --google-play-green: #01875f; /* Il classico verde ufficiale Google Play */
@@ -14,6 +15,7 @@
             --text-color: #334155;
         }
 
+        /* 🎨 2. STILI GENERALI DEL CORPO PAGINA */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -23,6 +25,7 @@
             line-height: 1.6;
         }
 
+        /* 🎨 3. STILE DELL'INTESTAZIONE (HEADER) */
         header {
             background-color: #fff;
             padding: 15px 20px;
@@ -67,13 +70,14 @@
             padding: 20px;
         }
 
+        /* 🎨 4. SEZIONE DI PRESENTAZIONE INIZIALE (HERO) */
         .hero {
             text-align: center;
             padding: 50px 20px 20px 20px;
         }
 
         .hero h1 {
-            color: var(--primary-color); /* TITOLO IN ROSSO */
+            color: var(--primary-color); 
             font-size: 3em;
             margin-bottom: 15px;
             font-weight: 900;
@@ -101,7 +105,7 @@
             border: 1px solid #bbf7d0;
         }
 
-        /* Pulsanti di Download Strutturati con Badge SVG */
+        /* 🎨 5. PULSANTI DOWNLOAD CON BADGE SVG */
         .download-container {
             display: flex;
             justify-content: center;
@@ -133,12 +137,12 @@
         }
 
         .download-btn.android {
-            background-color: var(--google-play-green); /* VERDE GOOGLE PLAY */
+            background-color: var(--google-play-green); 
             border-color: var(--google-play-green);
         }
 
         .download-btn.android:hover {
-            background-color: #016f4e; /* Verde leggermente più scuro per l'effetto hover */
+            background-color: #016f4e; 
         }
 
         .download-btn.windows {
@@ -164,7 +168,7 @@
             display: block;
         }
 
-        /* Classe Smartphone virtuale */
+        /* 🎨 6. SMARTPHONE VIRTUALE IN 3D CSS */
         .smartphone-mockup {
             max-width: 290px;
             margin: 30px auto;
@@ -172,7 +176,7 @@
 
         .smartphone-screen {
             position: relative;
-            padding-bottom: 220%; /* Formato allungato moderno */
+            padding-bottom: 220%; 
             height: 0;
             overflow: hidden;
             border-radius: 28px;
@@ -190,6 +194,7 @@
             border: 0;
         }
 
+        /* 🎨 7. SCHEDE DELLE FUNZIONALITÀ (FEATURES) */
         .feature-section {
             background: #fff;
             padding: 40px;
@@ -243,6 +248,7 @@
             font-weight: 500;
         }
 
+        /* 🎨 8. LEGENDA DEI TENTACOLO-CONTROLLI */
         .tentacles-legend {
             background: #fff;
             padding: 15px;
@@ -306,6 +312,7 @@
             transform: scale(1.02);
         }
 
+        /* 🎨 9. GRIGLIA DEI GESTI MAGICI */
         .gestures-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -327,6 +334,7 @@
             display: block;
         }
 
+        /* 🎨 10. SCATOLA DEI LINGUAGGI */
         .languages-box {
             text-align: center;
             background: var(--dark-color);
@@ -357,7 +365,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Stile contatore visite testuale sicuro */
+        /* 🎨 11. CONTATORE VISITE SICURO ED ELEGANTE */
         .counter-wrapper {
             margin-top: 20px;
             font-size: 1em;
@@ -387,6 +395,7 @@
 </head>
 <body>
 
+    <!-- 📌 HEADER DELLA PAGINA CON SELETTORE LINGUA -->
     <header>
         <span class="logo-title">PdfForAll</span>
         <div class="lang-switcher">
@@ -397,7 +406,7 @@
 
     <div class="container">
         
-        <!-- SEZIONE 1: HOMEPAGE (INTRODUZIONE ESTESA) -->
+        <!-- 📌 SEZIONE 1: INTRODUZIONE ED INVITO AL DOWNLOAD (HERO) -->
         <section class="hero">
             <span class="badge-secure">🔒 Standard PDF Sicuro & Compatibile al 100%</span>
             <h1>PdfForAll: Il tuo ufficio in tasca.</h1>
@@ -405,7 +414,6 @@
                 PdfForAll non è la solita applicazione di sola lettura o editing parziale. È una suite avanzatissima che supporta nativamente **tutte le annotazioni standard del formato PDF** (disegni a mano libera, note, moduli ed evidenziazioni). Introduce funzionalità uniche come l'importazione e la **conversione universale offline** di fogli di testo, Word ed Excel in PDF, la compilazione avanzata di moduli e tabelle, e l'inserimento di **Album Fotografici raddrizzati prospetticamente** e **Video MP4 Interattivi** perfettamente fusi nel foglio.
             </p>
 
-            <!-- PULSANTI DOWNLOAD CON BADGE VETTORIALI SVG UFFICIALI (ANDROIDE E WINDOWS) -->
             <div class="download-container">
                 <!-- BADGE GOOGLE PLAY STORE -->
                 <a href="https://play.google.com/store/apps/details?id=com.sergio73.pdfforall" target="_blank" class="download-btn android">
@@ -418,7 +426,7 @@
                     </div>
                 </a>
                 
-                <!-- BADGE WINDOWS STORE -->
+                <!-- BADGE WINDOWS STORE (PROSSIMAMENTE) -->
                 <div class="download-btn windows disabled">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
                         <path d="M0 256l224-31v224H0V256zm256-35.4L512 192v288H256V220.6zM0 48h224v177L0 194V48zm256-11.8L512 0v160H256V36.2z" fill="#fff"/>
@@ -431,7 +439,7 @@
             </div>
         </section>
 
-        <!-- Video Principale di Presentazione -->
+        <!-- Smartphone Virtuale con Video di Presentazione di YouTube -->
         <div class="smartphone-mockup">
             <div class="smartphone-screen">
                 <iframe 
@@ -442,30 +450,29 @@
             </div>
         </div>
 
-        <!-- SEZIONE 2: LE FUNZIONI CHIAVE -->
+        <!-- 📌 SEZIONE 2: LE CARATTERISTICHE CHIAVE E STRUMENTI -->
         <section class="feature-section">
             <h2>🛠️ Strumenti Rivoluzionari</h2>
 
-            <!-- NOVITÀ: CONVERTITORE UNIVERSALE (TXT, WORD, EXCEL IN PDF) -->
+            <!-- CONVERTITORE UNIVERSALE -->
             <div class="feature-block" style="border-left: 4px solid var(--primary-color);">
                 <h3>🔄 Convertitore Universale (Leggi e Converti Word, Excel, TXT)</h3>
                 <p>Non hai un file PDF di partenza? Da oggi puoi leggere qualsiasi formato da ufficio direttamente in tasca. Grazie al **convertitore universale offline integrato**, puoi importare e convertire all'istante file di testo semplice (.txt), documenti Word (.doc, .docx) e fogli di calcolo Excel (.xls, .xlsx) in pulitissimi fogli PDF A4 standard. Tutto il processo avviene sul tuo dispositivo in modo privato, sicuro e senza bisogno di connessione internet.</p>
                 <div class="pdf-guarantee">📄 **Sicurezza PDF:** I file convertiti sono immediatamente pronti per essere compilati, firmati, protetti o annotati direttamente all'interno dell'applicazione.</div>
             </div>
 
-            <!-- NOVITÀ: COMPILAZIONE MODULI ED EDITING MANUALE -->
+            <!-- COMPILAZIONE MODULI ED EDITING MANUALE -->
             <div class="feature-block" style="border-left: 4px solid var(--primary-color);">
                 <h3>📝 Compilazione Moduli Intelligente (Form Filling di Precisione)</h3>
                 <p>Compilare e completare un modulo non è mai stato così fluido e pulito. L'applicazione analizza il foglio e imposta automaticamente l'allineamento a sinistra calcolando la coordinata minima reale del margine. Se scrivi in una tabella, l'app rileva il numero di riga e inserisce dei blocchi di puntini automatici per mantenere l'allineamento. In più, riconosce se c'è uno spazio vuoto a sinistra di una riga e inserisce automaticamente la casella di spunta `[ ]` per le tue checkbox.</p>
                 <div class="pdf-guarantee">📄 **Saldatura Chirurgica (PDFBox):** Quando premi su APPLICA, il sistema cancella solo i caratteri modificati usando un micro-rettangolo bianco e vi scrive sopra con un moltiplicatore di scala a 1.55f in Courier Bold. Questo mantiene intatti al 100% i loghi, le scritte statiche e le tabelle nere del PDF originale!</div>
             </div>
             
-            <!-- VIDEO SU PDF (PUNTA DI DIAMANTE & SERVIDEOPLAYER) -->
+            <!-- VIDEO SU PDF ED ESCLUSIVO MOTORE SERVIDEOPLAYER -->
             <div class="feature-block">
                 <h3>🎥 La Magia dei Video su PDF & Motore "SerVideoPlayer"</h3>
                 <p>Una foto statica non basta per spiegare un concetto? **Incolla un vero video sul foglio!** PdfForAll ti permette di incorporare filmati MP4 interattivi direttamente sulle pagine del documento. Grazie all'esclusivo motore integrato **SerVideoPlayer**, la riproduzione è fluida, vettoriale e nativa: puoi controllare la traccia, ridimensionare, ruotare e persino modificare la velocità di riproduzione del filmato direttamente sul PDF.</p>
                 
-                <!-- LEGENDA VIDEO TENTACOLI -->
                 <div class="tentacles-legend">
                     <h4>🕹️ I "VideoTentacoli" di Controllo:</h4>
                     <ul>
@@ -484,12 +491,11 @@
                 </div>
             </div>
 
-            <!-- BIANCHETTO DIGITALE, SCRITTURA & ESTRAZIONE OCR -->
+            <!-- BIANCHETTO DIGITALE, SCRITTURA ED ESTRAZIONE OCR -->
             <div class="feature-block">
                 <h3>✍️ Editing Testo, "Bianchetto" ed Estrazione Testo OCR</h3>
                 <p>Modifica, correggi e inserisci testo con una precisione millimetrica. Se devi correggere un documento scansionato, la funzione di Sostituzione analizza il colore del foglio, crea una maschera invisibile di "bianchetto virtuale" e ti permette di scriverci sopra. Con l'esclusiva **funzione di Estrazione OCR**, l'app analizza l'immagine e ti permette di selezionare il testo scansionato per copiarlo negli appunti, inviarlo o farlo leggere a voce alta.</p>
                 
-                <!-- TOOLBAR SCRITTURA DETAILS -->
                 <div class="pdf-guarantee">
                     <strong>🖋️ Come funziona la Toolbar di Scrittura:</strong><br>
                     • **Barra Superiore di Editing:** Scegli la famiglia del font (es. Sans Serif), imposta la dimensione del carattere (es. 22pt), gestisci colori, stili e allineamento.<br>
@@ -504,13 +510,13 @@
                 </div>
             </div>
 
-            <!-- SCANNER AVANZATO -->
+            <!-- SCANNER MULTIPAGINA AVANZATO -->
             <div class="feature-block">
                 <h3>🔍 Lo Scanner Intelligente (Scansione Multipla)</h3>
                 <p>Acquisisci qualsiasi testo o foglio cartaceo con la fotocamera. Grazie agli algoritmi di intelligenza artificiale Google ML Kit, l'app rimuove ombre, raddrizza le pieghe e pulisce lo sfondo. Supporta la **Scansione Multipla** di più pagine contemporaneamente e ti permette di **allegarle ad altre pagine** già esistenti nel tuo file PDF.</p>
                 <div class="pdf-guarantee">📄 **Sicurezza PDF:** Ogni scansione viene generata direttamente in formato PDF ad alta definizione. Puoi riordinare le pagine e salvarle in una bozza modificabile in qualsiasi momento.</div>
                 
-                <!-- SMARTPHONE VIDEO SCANNER -->
+                <!-- Video di Demo dello Scanner -->
                 <div class="smartphone-mockup">
                     <div class="smartphone-screen">
                         <iframe 
@@ -522,13 +528,12 @@
                 </div>
             </div>
 
-            <!-- FOTOGRAFIA PROSPETTICA -->
+            <!-- FOTOGRAFIA PROSPETTICA ED ALBUM FOTOGRAFICI -->
             <div class="feature-block">
                 <h3>📸 Fotografia Prospettica e Album Sicuri</h3>
                 <p>Crea album fotografici professionali sul tuo documento. Scatta una foto da qualsiasi angolazione e usa il Ritagliatore Prospettico per raddrizzarla sul foglio in modo ottimale. Ruota le immagini usando il Tentacolo a Rotazione Magnetica con calamita a 0/90/180 gradi, oppure ritagliale in forme geometriche o creative.</p>
                 <div class="pdf-guarantee">📄 **Sicurezza PDF:** Le immagini vengono incorporate nel corpo del PDF come dati protetti, impedendo che si spostino o si scollino quando il file viene aperto su altri dispositivi.</div>
                 
-                <!-- LEGENDA FOTO TENTACOLI -->
                 <div class="tentacles-legend">
                     <h4>🕹️ I "FotoTentacoli" di Controllo:</h4>
                     <ul>
@@ -547,7 +552,7 @@
                 </div>
             </div>
 
-            <!-- DISEGNO CAD, FIRME E SIMBOLI EMOJI -->
+            <!-- DISEGNO CAD VETTORIALE, FIRME E TIMBRI EMOJI -->
             <div class="feature-block">
                 <h3>📐 Disegno CAD, Firme Protette ed Emoji a 360°</h3>
                 <p>Traccia linee, forme geometriche, cerchi e rettangoli con il modellatore vettoriale a nodi. Applica la tua firma formale o commerciale: l'app crea uno speciale "Scudo di Protezione" che blocca l'immagine della firma mantenendola perfettamente orizzontale e solida. In più, abbiamo inserito il supporto ai **Timbri Emoji**! A differenza delle firme, le emoji possono essere ruotate a 360 gradi e ridimensionate usando un comodo tentacolo azzurro per dare sfogo alla tua creatività.</p>
@@ -565,7 +570,7 @@
 
         </section>
 
-        <!-- SEZIONE 3: ARCHIVIO E BACKUP -->
+        <!-- 📌 SEZIONE 3: ORGANIZZAZIONE, CARTELLE E BACKUP -->
         <section class="feature-section">
             <h2>🗂️ Archivio Strutturato in Cartelle</h2>
             
@@ -579,7 +584,7 @@
                 <h3>🍊 Salvataggio in Bozza o Archivio Sigillato</h3>
                 <p>Gestisci lo stato del file. Salva in **Bozza** (con un elegante bordo arancione di avviso sulla cartella) per poter riaprire il PDF e modificare nuovamente tutti i video, le immagini e le forme inserite. Salva in **Archivio Sigillato** per appiattire e bloccare definitivamente tutti gli elementi in un file PDF protetto e immodificabile, pronto da spedire.</p>
                 
-                <!-- SMARTPHONE VIDEO ARCHIVIO -->
+                <!-- Video di Demo dell'Archivio -->
                 <div class="smartphone-mockup">
                     <div class="smartphone-screen">
                         <iframe 
@@ -595,7 +600,7 @@
                 <h3>📦 Backup Sicuro in formato ZIP</h3>
                 <p>Esporta interi gruppi di cartelle in un singolo file compresso (.ZIP) per trasferire i tuoi dati su un nuovo telefono o inviarli a colleghi e collaboratori. All'estrazione dell'archivio, le nuove cartelle importate si illumineranno di azzurro per segnalarti immediatamente i nuovi elementi pronti.</p>
                 
-                <!-- SMARTPHONE VIDEO BACKUP -->
+                <!-- Video di Demo del Backup -->
                 <div class="smartphone-mockup">
                     <div class="smartphone-screen">
                         <iframe 
@@ -608,7 +613,7 @@
             </div>
         </section>
 
-        <!-- SEZIONE 4: GUIDA RAPIDA - I GESTI MAGICI -->
+        <!-- 📌 SEZIONE 4: GUIDA RAPIDA ALL'USO (GESTURES) -->
         <section class="feature-section">
             <h2>📖 I Gesti Magici dell'Interfaccia</h2>
             <p>PdfForAll elimina le barre degli strumenti infinite e racchiude tutta la sua potenza in 3 gesti naturali:</p>
@@ -632,7 +637,7 @@
             </div>
         </section>
 
-        <!-- SEZIONE 5: MULTILINGUA -->
+        <!-- 📌 SEZIONE 5: MULTILINGUA -->
         <section class="languages-box">
             <h2>🌍 Supporto Nativo in 13 Lingue</h2>
             <p>PdfForAll abbatte ogni barriera di comunicazione. L'interfaccia si adatta istantaneamente alla lingua del tuo dispositivo o può essere cambiata manualmente tra 13 opzioni:</p>
@@ -653,9 +658,9 @@
             </div>
         </section>
 
-        <!-- SEZIONE 6: BOX DI INVITO AL DOWNLOAD FINALE (CALL TO ACTION) -->
+        <!-- 📌 SEZIONE 6: CHIAMATA ALL'AZIONE (CALL TO ACTION) -->
         <section class="feature-section" style="text-align: center; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #fff; border: none; margin-top: 40px;">
-            <h2 style="color: #fff; border: none; margin-bottom: 10px;">Pronto a liberare la potenza dei tuoi PDF?</h2>
+            <h2 style="color: #fff; border: none; margin-bottom: 10px;">Pronto a sbloccare la potenza dei tuoi PDF?</h2>
             <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 30px auto;">Scarica l'applicazione oggi stesso ed entra nel primo vero cantiere digitale per gestire al meglio studio, lavoro e tempo libero.</p>
             
             <div class="download-container" style="margin: 0;">
@@ -670,7 +675,7 @@
                     </div>
                 </a>
                 
-                <!-- BADGE WINDOWS STORE -->
+                <!-- BADGE WINDOWS STORE (PROSSIMAMENTE) -->
                 <div class="download-btn windows disabled" style="background-color: #475569;">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
                         <path d="M0 256l224-31v224H0V256zm256-35.4L512 192v288H256V220.6zM0 48h224v177L0 194V48zm256-11.8L512 0v160H256V36.2z" fill="#fff"/>
@@ -685,36 +690,44 @@
 
     </div>
 
+    <!-- 📌 FOOTER DELLA PAGINA CON CONTATORE DI VISITE INTEGRATO -->
     <footer>
         <p>&copy; 2026 PdfForAll. Soluzioni sicure e flessibili per l'organizzazione personale, lo studio e il lavoro professionale in formato standard PDF.</p>
         
         <!-- CONTATORE VISITE SICURO JAVASCRIPT -->
-       <!-- Script sicuro per contatore senza immagini rotte -->
-<script>
-    function updateCounter(value) {
-        document.getElementById('visit-count').innerText = value;
-    }
+        <div class="counter-wrapper">
+            <span>👁️ Visite al cantiere:</span>
+            <span id="visit-count">...</span>
+        </div>
+    </footer>
 
-    // Usiamo il CounterAPI V2 pubblico, pulito e senza intestazioni di sicurezza bloccanti!
-    fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
-        .then(response => {
-            if (!response.ok) throw new Error('API error');
-            return response.json();
-        })
-        .then(data => {
-            // Nella versione v2 il server restituisce il conteggio sotto la chiave "value" o "count"
-            let count = data.value || data.count || 1;
-            updateCounter(count);
-            // Salva localmente per eventuali fallback futuri
-            localStorage.setItem('visitCount', count);
-        })
-        .catch(() => {
-            // Se l'API fallisce, usa il valore in localStorage o incrementa in locale
-            let localCount = parseInt(localStorage.getItem('visitCount') || '169');
-            localCount++;
-            localStorage.setItem('visitCount', localCount);
-            updateCounter(localCount);
-        });
-</script>
+    <!-- 📌 SCRIPT DI CONVERSIONE E COLLEGAMENTO AUTOMATICO AL SERVER V2 DI COUNTERAPI -->
+    <script>
+        function updateCounter(value) {
+            document.getElementById('visit-count').innerText = value;
+        }
+
+        // Usiamo il CounterAPI V2 pubblico, pulito e senza intestazioni di sicurezza bloccanti!
+        fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
+            .then(response => {
+                if (!response.ok) throw new Error('API error');
+                return response.json();
+            })
+            .then(data => {
+                // Nella versione v2 il server restituisce il conteggio sotto la chiave "value" o "count"
+                let count = data.value || data.count || 1;
+                updateCounter(count);
+                // Salva localmente per eventuali fallback futuri
+                localStorage.setItem('visitCount', count);
+            })
+            .catch(() => {
+                // Se l'API fallisce, usa il valore in localStorage o incrementa in locale
+                let localCount = parseInt(localStorage.getItem('visitCount') || '169');
+                localCount++;
+                localStorage.setItem('visitCount', localCount);
+                updateCounter(localCount);
+            });
+    </script>
+
 </body>
 </html>
