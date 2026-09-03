@@ -701,36 +701,31 @@
         </div>
     </footer>
 
-    <!-- 📌 SECURE VISITS COUNTER JAVASCRIPT CONNECTING TO V2 API -->
+  <!-- Script sicuro per contatore senza immagini rotte -->
     <script>
-        // Function to update the visual counter text on the screen
         function updateCounter(value) {
             document.getElementById('visit-count').innerText = value;
         }
 
-        // Call the CounterAPI V2 public, secure, and non-CORS endpoint in the background!
-        fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
+        // Usiamo il CounterAPI V2 pubblico, configurato con lo slug ufficiale del tuo Workspace!
+        fetch('https://api.counterapi.dev/v2/sergio-pratos-team-5203/pdfforall/up')
             .then(response => {
-                // If the response is not OK, throw an error to trigger the local fallback
-                if (!response.ok) throw new Error('API network response error');
+                if (!response.ok) throw new Error('API error');
                 return response.json();
             })
             .then(data => {
-                // Extract the actual visit count from the V2 JSON response
+                // Nella versione v2 il server restituisce il conteggio sotto la chiave "value" o "count"
                 let count = data.value || data.count || 1;
                 updateCounter(count);
-                // Save the updated count locally for future fallback use
+                // Salva localmente per eventuali fallback futuri
                 localStorage.setItem('visitCount', count);
             })
-            .catch((error) => {
-                // If the API server is down, retrieve the count stored on the user's machine
-                // If it's the user's very first visit, initialize the count from your record of 169 visits!
+            .catch(() => {
+                // Se l'API fallisce, usa il valore in localStorage o incrementa in locale partendo da 169
                 let localCount = parseInt(localStorage.getItem('visitCount') || '169');
                 localCount++;
-                // Save and display the incremented local count
                 localStorage.setItem('visitCount', localCount);
                 updateCounter(localCount);
-                console.log("Using local fallback counter due to network congestion:", error);
             });
     </script>
 
