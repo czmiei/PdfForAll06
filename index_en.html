@@ -688,7 +688,7 @@
     <footer>
         <p>&copy; 2026 PdfForAll. Secure and flexible solutions for personal organization, study, and professional work in standard PDF format.</p>
         
-    <!-- Script sicuro per contatore senza immagini rotte -->
+   <!-- Script sicuro per contatore senza immagini rotte -->
 <script>
     function updateCounter(value) {
         document.getElementById('visit-count').innerText = value;
@@ -704,10 +704,11 @@
             // Nella versione v2 il server restituisce il conteggio sotto la chiave "value" o "count"
             let count = data.value || data.count || 1;
             updateCounter(count);
+            // Salva localmente per eventuali fallback futuri
             localStorage.setItem('visitCount', count);
         })
         .catch(() => {
-            // Se l'API fallisce, usa il valore in localStorage partendo dallo storico di 169!
+            // Se l'API fallisce, usa il valore in localStorage o incrementa in locale
             let localCount = parseInt(localStorage.getItem('visitCount') || '169');
             localCount++;
             localStorage.setItem('visitCount', localCount);
