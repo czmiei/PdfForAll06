@@ -701,14 +701,14 @@
         </div>
     </footer>
 
-    <!-- 📌 SCRIPT DI CONVERSIONE E COLLEGAMENTO AUTOMATICO AL SERVER V2 DI COUNTERAPI -->
+  <!-- Script sicuro per contatore senza immagini rotte -->
     <script>
         function updateCounter(value) {
             document.getElementById('visit-count').innerText = value;
         }
 
-        // Usiamo il CounterAPI V2 pubblico, pulito e senza intestazioni di sicurezza bloccanti!
-        fetch('https://api.counterapi.dev/v2/czmiei/pdfforall/up')
+        // Usiamo il CounterAPI V2 pubblico, configurato con lo slug ufficiale del tuo Workspace!
+        fetch('https://api.counterapi.dev/v2/sergio-pratos-team-5203/pdfforall/up')
             .then(response => {
                 if (!response.ok) throw new Error('API error');
                 return response.json();
@@ -721,7 +721,7 @@
                 localStorage.setItem('visitCount', count);
             })
             .catch(() => {
-                // Se l'API fallisce, usa il valore in localStorage o incrementa in locale
+                // Se l'API fallisce, usa il valore in localStorage o incrementa in locale partendo da 169
                 let localCount = parseInt(localStorage.getItem('visitCount') || '169');
                 localCount++;
                 localStorage.setItem('visitCount', localCount);
