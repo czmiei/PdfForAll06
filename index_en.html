@@ -707,33 +707,7 @@
        
     </footer>
 
-  <!-- Script sicuro per contatore senza immagini rotte -->
-    <script>
-        function updateCounter(value) {
-            document.getElementById('visit-count').innerText = value;
-        }
 
-        // Usiamo il CounterAPI V2 pubblico, configurato con lo slug ufficiale del tuo Workspace!
-        fetch('https://api.counterapi.dev/v2/sergio-pratos-team-5203/pdfforall/up')
-            .then(response => {
-                if (!response.ok) throw new Error('API error');
-                return response.json();
-            })
-            .then(data => {
-                // Nella versione v2 il server restituisce il conteggio sotto la chiave "value" o "count"
-                let count = data.value || data.count || 1;
-                updateCounter(count);
-                // Salva localmente per eventuali fallback futuri
-                localStorage.setItem('visitCount', count);
-            })
-            .catch(() => {
-                // Se l'API fallisce, usa il valore in localStorage o incrementa in locale partendo da 169
-                let localCount = parseInt(localStorage.getItem('visitCount') || '169');
-                localCount++;
-                localStorage.setItem('visitCount', localCount);
-                updateCounter(localCount);
-            });
-    </script>
 
 </body>
 </html>
